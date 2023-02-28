@@ -9,6 +9,8 @@ defineProps<{
   //msg: string;
 }>();
 
+
+
 const competences = reactive({
   c: []
 });
@@ -60,7 +62,8 @@ function getCompetences() {
  */
 function showAjouterDomaines() {
   console.log("showAjouterDomaine");
-  variables.myModal.show(variables.modalToggle);
+    variables.myModal.show(variables.modalToggle);
+  
 /*
   editEleve.id = eleve.id;
   editEleve.prenom = eleve.prenom;
@@ -79,156 +82,209 @@ onMounted(() => initialisation(),getCompetences() )
 
   <div class="container-fluid">
 
-  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 ">
-    <h1 class="h2">Compétences</h1>
-    <div class="btn-toolbar mb-2 mb-md-0">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3  ">
+      <h1 class="h2">Compétences</h1>
+      <div class="btn-toolbar mb-2 mb-md-0">
 
-      <button type="button" class="btn btn-sm btn-outline-primary " v-on:click="showAjouterDomaines">
-        <span data-feather="calendar" class="align-text-bottom"></span>
-        Nouveau domaine
-      </button>
-    </div>
-  </div>
-
-    <ul class="list-group">
-      <li class="list-group-item pb-0 border-bottom-0" v-for="domaine in competences.domaines">
-        <div class="d-flex justify-content-between align-items-center pb-2">
-          <div>
-            <i class="bi bi-chevron-down"></i>
-            <span class="ms-2">{{ domaine.nom }}</span>
-            <span class="ms-2 fst-italic" >{{ domaine.description}}</span>
-          </div>
-          <div class="" >
-            <a type="button" class="btn btn-outline-secondary btn-sm pt-0 pb-0"><i class="bi bi-plus" ></i></a>
-            <a type="button" class="btn btn-outline-secondary btn-sm pt-0 pb-0 ms-2"><i class="bi bi-pencil" ></i></a>
-            <a type="button" class="btn btn-outline-secondary btn-sm pt-0 pb-0 ms-2" ><i class="bi bi-trash" ></i></a>
-          </div>
-        </div>
-        <ul class="list-group">
-          <li class="list-group-item pb-0 border-bottom-0" v-for="champ in domaine.champs">
-            <div class="d-flex justify-content-between align-items-center pb-2">
-              <div><i class="bi bi-chevron-down"></i><span class="ms-2">{{ champ.nom }}</span>
-                <span class="ms-2 fst-italic" >{{ champ.description}}</span>
-              </div>
-              <div class="" >
-                <a type="button" class="btn btn-outline-secondary btn-sm pt-0 pb-0"><i class="bi bi-plus" ></i></a>
-                <a type="button" class="btn btn-outline-secondary btn-sm pt-0 pb-0 ms-2"><i class="bi bi-pencil" ></i></a>
-                <a type="button" class="btn btn-outline-secondary btn-sm pt-0 pb-0 ms-2" ><i class="bi bi-trash" ></i></a>
-              </div>
-            </div>
-            <ul class="list-group">
-              <li class="list-group-item pb-0 border-bottom-0" v-for="competence in champ.competences">
-                <div class="d-flex justify-content-between align-items-center pb-2">
-                  <div><i class="bi bi-chevron-down"></i><span class="ms-2">{{ competence.nom }}</span>
-                    <span class="ms-2 fst-italic" >{{ competence.description}}</span>
-                  </div>
-                  <div class="" >
-                    <a type="button" class="btn btn-outline-secondary btn-sm pt-0 pb-0"><i class="bi bi-plus" ></i></a>
-                    <a type="button" class="btn btn-outline-secondary btn-sm pt-0 pb-0 ms-2"><i class="bi bi-pencil" ></i></a>
-                    <a type="button" class="btn btn-outline-secondary btn-sm pt-0 pb-0 ms-2" ><i class="bi bi-trash" ></i></a>
-                  </div>
-                </div>
-                <ul class="list-group ps-4">
-                  <li class="list-group-item" v-for="competences_spe in competence.competences_spe">
-                    <div class="d-flex justify-content-between align-items-center pb-1">
-                      <div>
-                        <span class="">{{ competences_spe.nom }}</span>
-                        <span class="ms-2 fst-italic" >{{ competences_spe.description}}</span>
-                      </div>
-                      <div class="" >
-                        <a type="button" class="btn btn-outline-secondary btn-sm pt-0 pb-0 ms-2"><i class="bi bi-pencil" ></i></a>
-                        <a type="button" class="btn btn-outline-secondary btn-sm pt-0 pb-0 ms-2" ><i class="bi bi-trash" ></i></a>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-              </li>
-              <!--li class="list-group-item pb-0 border-bottom-0">
-                <div class="d-flex justify-content-between align-items-center" >
-                  <div><i class="bi bi-chevron-right"></i><span class="ms-2">Compétence</span></div>
-                  <div class="" >
-                    <a type="button" class="btn btn-outline-secondary btn-sm pt-0 pb-0"><i class="bi bi-plus" ></i></a>
-                    <a type="button" class="btn btn-outline-secondary btn-sm pt-0 pb-0 ms-2"><i class="bi bi-pencil" ></i></a>
-                    <a type="button" class="btn btn-outline-secondary btn-sm pt-0 pb-0 ms-2" ><i class="bi bi-trash" ></i></a>
-                  </div>
-                </div>
-              </li-->
-            </ul>
-          </li>
-        </ul>
-      </li>
-
-    </ul>
-
-  <!--ul class="list-group">
-    <li class="list-group-item pb-0 border-bottom-0" >
-      <div class="d-flex justify-content-between align-items-center pb-2">
-        <div><i class="bi bi-chevron-down"></i><span class="ms-2">Domaine</span></div>
-        <div class="" >
-          <a type="button" class="btn btn-outline-secondary btn-sm pt-0 pb-0"><i class="bi bi-plus" ></i></a>
-          <a type="button" class="btn btn-outline-secondary btn-sm pt-0 pb-0 ms-2"><i class="bi bi-pencil" ></i></a>
-          <a type="button" class="btn btn-outline-secondary btn-sm pt-0 pb-0 ms-2" ><i class="bi bi-trash" ></i></a>
-        </div>
+        <button type="button" class="btn btn-sm btn-outline-primary " v-on:click="showAjouterDomaines">
+          <span data-feather="calendar" class="align-text-bottom"></span>
+          Nouveau domaine
+        </button>
       </div>
-      <ul class="list-group">
-        <li class="list-group-item pb-0 border-bottom-0">
-          <div class="d-flex justify-content-between align-items-center pb-2">
-            <div><i class="bi bi-chevron-down"></i><span class="ms-2">Champ</span></div>
-            <div class="" >
-              <a type="button" class="btn btn-outline-secondary btn-sm pt-0 pb-0"><i class="bi bi-plus" ></i></a>
-              <a type="button" class="btn btn-outline-secondary btn-sm pt-0 pb-0 ms-2"><i class="bi bi-pencil" ></i></a>
-              <a type="button" class="btn btn-outline-secondary btn-sm pt-0 pb-0 ms-2" ><i class="bi bi-trash" ></i></a>
+    </div>
+
+    <div class="row">
+    <div class="col eval-menu">
+      <ul class="">
+        <li class="list-group-item pb-0 border-bottom-0" v-for="domaine in competences.domaines">
+          <div class=" eval-selector d-flex justify-content-between align-items-center ">
+            <div>
+              <i class="bi bi-caret-down-fill"></i>
+              <span class="ms-2">{{ domaine.nom }}</span>
+              <span class="ms-2 fst-italic" >{{ domaine.description}}</span>
+            </div>
+            <div class="bouton-selection" >
+              <a type="button" class="btn btn-outline-primary btn-sm pt-0 pb-0"><i class="bi bi-plus" ></i></a>
+              <a type="button" class="btn btn-outline-primary btn-sm pt-0 pb-0 ms-2"><i class="bi bi-pencil" ></i></a>
+              <a type="button" class="btn btn-outline-primary btn-sm pt-0 pb-0 ms-2" ><i class="bi bi-trash" ></i></a>
+            </div>
+          </div>
+          <ul class="list-group">
+            <li class="list-group-item pb-0 border-bottom-0" v-for="champ in domaine.champs">
+              <div class=" eval-selector d-flex justify-content-between align-items-center ">
+                <div><i class="bi bi-caret-down-fill"></i><span class="ms-2">{{ champ.nom }}</span>
+                  <span class="ms-2 fst-italic" >{{ champ.description}}</span>
+                </div>
+                <div class="bouton-selection" >
+                  <a type="button" class="btn btn-outline-primary btn-sm pt-0 pb-0"><i class="bi bi-plus" ></i></a>
+                  <a type="button" class="btn btn-outline-primary btn-sm pt-0 pb-0 ms-2"><i class="bi bi-pencil" ></i></a>
+                  <a type="button" class="btn btn-outline-primary btn-sm pt-0 pb-0 ms-2" ><i class="bi bi-trash" ></i></a>
+                </div>
+              </div>
+              <ul class="list-group">
+                <li class="list-group-item pb-0 border-bottom-0" v-for="competence in champ.competences">
+                  <div class=" eval-selector d-flex justify-content-between align-items-center ">
+                    <div><i class="bi bi-caret-down-fill"></i><span class="ms-2">{{ competence.nom }}</span>
+                      <span class="ms-2 fst-italic" >{{ competence.description}}</span>
+                    </div>
+                    <div class="bouton-selection" >
+                      <a type="button" class="btn btn-outline-primary btn-sm pt-0 pb-0"><i class="bi bi-plus" ></i></a>
+                      <a type="button" class="btn btn-outline-primary btn-sm pt-0 pb-0 ms-2"><i class="bi bi-pencil" ></i></a>
+                      <a type="button" class="btn btn-outline-primary btn-sm pt-0 pb-0 ms-2" ><i class="bi bi-trash" ></i></a>
+                    </div>
+                  </div>
+                  <ul class="list-group ">
+                    <li class="list-group-item" v-for="competences_spe in competence.competences_spe">
+                      <div class="eval-selector d-flex justify-content-between align-items-center pb-0">
+                        <div>
+                          <!--i class="bi bi-dot"></i--><span class=" ms-2">{{ competences_spe.nom }}</span>
+                          <span class="ms-2 fst-italic" >{{ competences_spe.description}}</span>
+                        </div>
+                        <div class="bouton-selection" >
+                          <a type="button" class="btn btn-outline-primary btn-sm pt-0 pb-0 ms-2"><i class="bi bi-pencil" ></i></a>
+                          <a type="button" class="btn btn-outline-primary btn-sm pt-0 pb-0 ms-2" ><i class="bi bi-trash" ></i></a>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+                <!--li class="list-group-item pb-0 border-bottom-0">
+                  <div class="d-flex justify-content-between align-items-center" >
+                    <div><i class="bi bi-chevron-right"></i><span class="ms-2">Compétence</span></div>
+                    <div class="" >
+                      <a type="button" class="btn btn-outline-primary btn-sm pt-0 pb-0"><i class="bi bi-plus" ></i></a>
+                      <a type="button" class="btn btn-outline-primary btn-sm pt-0 pb-0 ms-2"><i class="bi bi-pencil" ></i></a>
+                      <a type="button" class="btn btn-outline-primary btn-sm pt-0 pb-0 ms-2" ><i class="bi bi-trash" ></i></a>
+                    </div>
+                  </div>
+                </li-->
+              </ul>
+            </li>
+          </ul>
+        </li>
+
+
+        <li class="list-group-item pb-0 border-bottom-0" >
+          <div class="d-flex justify-content-between align-items-center ">
+            <div><i class="bi bi-caret-down-fill"></i><span class="ms-2">Domaine</span></div>
+            <div class="bouton-selection" >
+              <a type="button" class="btn btn-outline-primary btn-sm pt-0 pb-0"><i class="bi bi-plus" ></i></a>
+              <a type="button" class="btn btn-outline-primary btn-sm pt-0 pb-0 ms-2"><i class="bi bi-pencil" ></i></a>
+              <a type="button" class="btn btn-outline-primary btn-sm pt-0 pb-0 ms-2" ><i class="bi bi-trash" ></i></a>
             </div>
           </div>
           <ul class="list-group">
             <li class="list-group-item pb-0 border-bottom-0">
-              <div class="d-flex justify-content-between align-items-center pb-2">
-                <div><i class="bi bi-chevron-down"></i><span class="ms-2">Compétence</span></div>
-                <div class="" >
-                  <a type="button" class="btn btn-outline-secondary btn-sm pt-0 pb-0"><i class="bi bi-plus" ></i></a>
-                  <a type="button" class="btn btn-outline-secondary btn-sm pt-0 pb-0 ms-2"><i class="bi bi-pencil" ></i></a>
-                  <a type="button" class="btn btn-outline-secondary btn-sm pt-0 pb-0 ms-2" ><i class="bi bi-trash" ></i></a>
+              <div class="eval-selector d-flex justify-content-between align-items-center ">
+                <div><i class="bi bi-caret-down-fill"></i><span class=" ms-2">Champ</span></div>
+                <div class="bouton-selection" >
+                  <a type="button" class="btn btn-outline-primary btn-sm pt-0 pb-0"><i class="bi bi-plus" ></i></a>
+                  <a type="button" class="btn btn-outline-primary btn-sm pt-0 pb-0 ms-2"><i class="bi bi-pencil" ></i></a>
+                  <a type="button" class="btn btn-outline-primary btn-sm pt-0 pb-0 ms-2" ><i class="bi bi-trash" ></i></a>
                 </div>
               </div>
               <ul class="list-group">
-                <li class="list-group-item">
-                  <div class="d-flex justify-content-between align-items-center pb-1">
-                  <div><span class="ms-4">Compétence spé n°1</span></div>
-                  <div class="" >
-                    <a type="button" class="btn btn-outline-secondary btn-sm pt-0 pb-0 ms-2"><i class="bi bi-pencil" ></i></a>
-                    <a type="button" class="btn btn-outline-secondary btn-sm pt-0 pb-0 ms-2" ><i class="bi bi-trash" ></i></a>
+                <li class="list-group-item pb-0 border-bottom-0">
+                  <div class="eval-selector d-flex justify-content-between align-items-center ">
+                    <div><i class="bi bi-caret-down-fill"></i><span class="ms-2">Compétence</span></div>
+                    <div class="bouton-selection" >
+                      <a type="button" class="btn btn-outline-primary btn-sm pt-0 pb-0"><i class="bi bi-plus" ></i></a>
+                      <a type="button" class="btn btn-outline-primary btn-sm pt-0 pb-0 ms-2"><i class="bi bi-pencil" ></i></a>
+                      <a type="button" class="btn btn-outline-primary btn-sm pt-0 pb-0 ms-2" ><i class="bi bi-trash" ></i></a>
+                    </div>
                   </div>
-                  </div>
-                </li>
-                <li class="list-group-item">
-                  <div class="d-flex justify-content-between align-items-center pb-1">
-                    <div><span class="ms-4">Compétence spé n°2</span></div>
-                    <div class="" >
-                      <a type="button" class="btn btn-outline-secondary btn-sm pt-0 pb-0 ms-2"><i class="bi bi-pencil" ></i></a>
-                      <a type="button" class="btn btn-outline-secondary btn-sm pt-0 pb-0 ms-2" ><i class="bi bi-trash" ></i></a>
+                  <ul class="list-group">
+                    <li class="list-group-item">
+                      <div class="eval-selector d-flex justify-content-between align-items-center pb-1">
+                      <div><span class="ms-2">Compétence spé n°1</span></div>
+                      <div class="bouton-selection" >
+                        <a type="button" class="btn btn-outline-primary btn-sm pt-0 pb-0 ms-2"><i class="bi bi-pencil" ></i></a>
+                        <a type="button" class="btn btn-outline-primary btn-sm pt-0 pb-0 ms-2" ><i class="bi bi-trash" ></i></a>
+                      </div>
+                      </div>
+                    </li>
+                    <li class="list-group-item">
+                      <div class=" eval-selector d-flex justify-content-between align-items-center pb-1">
+                        <div><span class="ms-2">Compétence spé n°2</span></div>
+                        <div class="bouton-selection" >
+                          <a type="button" class="btn btn-outline-primary btn-sm pt-0 pb-0 ms-2"><i class="bi bi-pencil" ></i></a>
+                          <a type="button" class="btn btn-outline-primary btn-sm pt-0 pb-0 ms-2" ><i class="bi bi-trash" ></i></a>
+                        </div>
+                      </div>
+                    </li>
+                </ul>
+              </li>
+                <li class="list-group-item pb-0 border-bottom-0">
+                  <div class="eval-selector d-flex /*justify-content-between align-items-center*/" >
+                    <div><i class="bi bi-caret-right-fill"></i><span class="ms-2">Compétence</span></div>
+                    <div class="bouton-selection ms-2" >
+                      <a type="button" class="btn btn-outline-primary btn-sm pt-0 pb-0"><i class="bi bi-plus" ></i></a>
+                      <a type="button" class="btn btn-outline-primary btn-sm pt-0 pb-0 ms-2"><i class="bi bi-pencil" ></i></a>
+                      <a type="button" class="btn btn-outline-primary btn-sm pt-0 pb-0 ms-2" ><i class="bi bi-trash" ></i></a>
                     </div>
                   </div>
                 </li>
             </ul>
-          </li>
-            <li class="list-group-item pb-0 border-bottom-0">
-              <div class="d-flex justify-content-between align-items-center" >
-                <div><i class="bi bi-chevron-right"></i><span class="ms-2">Compétence</span></div>
-                <div class="" >
-                  <a type="button" class="btn btn-outline-secondary btn-sm pt-0 pb-0"><i class="bi bi-plus" ></i></a>
-                  <a type="button" class="btn btn-outline-secondary btn-sm pt-0 pb-0 ms-2"><i class="bi bi-pencil" ></i></a>
-                  <a type="button" class="btn btn-outline-secondary btn-sm pt-0 pb-0 ms-2" ><i class="bi bi-trash" ></i></a>
-                </div>
-              </div>
             </li>
-        </ul>
+          </ul>
         </li>
-      </ul>
-    </li>
+    </ul>
+  </div>
+  
+  <div class="col">
+    
+    <div class="card" style="shadow">
+      <div class="card-body">
+        <h5 class="card-title">Compétence</h5>
+        
+        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <!--ul class="list-group">
+          <li class="list-group-item">An item</li>
+          <li class="list-group-item">A second item</li>
+          <li class="list-group-item">A third item</li>
+          <li class="list-group-item">A fourth item</li>
+          <li class="list-group-item">And a fifth one</li>
+        </ul-->
+    
+  
+        <table class="table">
+                <tbody>
+                  <tr>
+                    <td>Type de valeur</td>
+                    <td>numérique</td>
+                  </tr>
+                  <tr>
+                    <td>Valeur minimale</td>
+                    <td>0</td>
+                  </tr>
+                  <tr>
+                    <td >Valeur maximale </td>
+                    <td >50</td>
+                  </tr>
+                </tbody>
+              </table>  
 
-  </ul-->
+
+      
+        <div class="mt-4 d-flex">
+          <div class="w-100">
+          <a href="#" class="ms-2 btn btn-primary">Nouvelle sous compétence</a>
+          </div>
+          <div class="flex-shrink-1 ">
+            <a type="button" class=" btn  p-0 " ><i class="fs-4 bi bi-three-dots-vertical"></i></a>
+          </div>
+        </div>
+
+        </div>
+      
+    </div>
 
   </div>
+
+</div>
+</div>
+
 
 
   <!-- Modal d'ajout d'un eleve -->
@@ -264,14 +320,54 @@ onMounted(() => initialisation(),getCompetences() )
 </template>
 
 <style scoped>
-li {
-  border-left-width: 0;
-  border-right-width: 0;
-  border-top-width: 1;
-  border-bottom-width: 1;
+
+.list-group{
+  --bs-list-group-border-radius: 0rem;
+  
+}
+
+ul{
+  padding-left: 0.5rem;
+  padding-top: 0;
+  padding-bottom: 0;
+  background-color: rgb(252, 252, 252);
+}
+
+li{
   padding-right: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  border-left-width: 1;
+  border-right-width: 0;
+  border-top-width: 0;
+  border-bottom-width: 0;
+  background-color: rgb(252, 252, 252);
+}
+
+.eval-selector:hover {
+  
+  opacity: 0.7;
+  background-color: rgb(242, 242, 242);
+  cursor:pointer;
+}
+
+.bouton-selection {
+  display: none;
+}
+
+.eval-selector:hover > .bouton-selection {
+  display: block
 }
 
 
+.card {
+  border-radius: 1rem;
+  background-color: rgb(255, 255, 255);
+}
+
+.container-fluid
+{
+  background-color: rgb(252, 252, 252);
+}
 
 </style>
