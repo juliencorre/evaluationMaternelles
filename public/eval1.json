@@ -1,0 +1,417 @@
+{
+  "entetes": {
+    "evaluation" :["domaine","champ","compétence","compétence_spé"],
+    "eleves":["Badr","Badr","Badr","Badr","Badr","Badr","Badr","Badr","Badr","Badr"]
+  },
+  "evaluations": [{
+      "domaine": "compétences transversales",
+      "champ": "compétences transversales",
+      "compétence": "Est-ce qu’il se repère dans la classe ?",
+      "compétence_spé": "intervient à bon escient",
+      "eleves":[{
+        "nom":"Badr",
+        "resultat":"Oui"
+      },{
+        "nom":"Badr",
+        "resultat":"Non"
+      },
+      {
+        "nom":"Badr",
+        "resultat":"Oui"
+      },{
+        "nom":"Badr",
+        "resultat":"Non"
+      },
+      {
+        "nom":"Badr",
+        "resultat":"Oui"
+      },{
+        "nom":"Badr",
+        "resultat":"Non"
+      },
+      {
+        "nom":"Badr",
+        "resultat":"Oui"
+      },{
+        "nom":"Badr",
+        "resultat":"Non"
+      },
+      {
+        "nom":"Badr",
+        "resultat":"Oui"
+      },{
+        "nom":"Badr",
+        "resultat":"Non"
+      }]
+    },
+    {
+        "domaine": "compétences transversales",
+        "champ": "compétences transversales",
+        "compétence": "Est-ce qu’il se repère dans la classe ?",
+        "compétence_spé": "intervient à bon escient",
+        "eleves":[{
+          "nom":"Badr",
+          "resultat":"Oui"
+        },{
+          "nom":"Badr",
+          "resultat":"Non"
+        },
+        {
+          "nom":"Badr",
+          "resultat":"Oui"
+        },{
+          "nom":"Badr",
+          "resultat":"Non"
+        },
+        {
+          "nom":"Badr",
+          "resultat":"Oui"
+        },{
+          "nom":"Badr",
+          "resultat":"Non"
+        },
+        {
+          "nom":"Badr",
+          "resultat":"Oui"
+        },{
+          "nom":"Badr",
+          "resultat":"Non"
+        },
+        {
+          "nom":"Badr",
+          "resultat":"Oui"
+        },{
+          "nom":"Badr",
+          "resultat":"Non"
+        }]
+      },
+      {
+          "domaine": "compétences transversales",
+          "champ": "compétences transversales",
+          "compétence": "Est-ce qu’il se repère dans la classe ?",
+          "compétence_spé": "intervient à bon escient",
+          "eleves":[{
+            "nom":"Badr",
+            "resultat":"Oui"
+          },{
+            "nom":"Badr",
+            "resultat":"Non"
+          },
+          {
+            "nom":"Badr",
+            "resultat":"Oui"
+          },{
+            "nom":"Badr",
+            "resultat":"Non"
+          },
+          {
+            "nom":"Badr",
+            "resultat":"Oui"
+          },{
+            "nom":"Badr",
+            "resultat":"Non"
+          },
+          {
+            "nom":"Badr",
+            "resultat":"Oui"
+          },{
+            "nom":"Badr",
+            "resultat":"Non"
+          },
+          {
+            "nom":"Badr",
+            "resultat":"Oui"
+          },{
+            "nom":"Badr",
+            "resultat":"Non"
+          }]
+        },
+        {
+            "domaine": "compétences transversales",
+            "champ": "compétences transversales",
+            "compétence": "Est-ce qu’il se repère dans la classe ?",
+            "compétence_spé": "intervient à bon escient",
+            "eleves":[{
+              "nom":"Badr",
+              "resultat":"Oui"
+            },{
+              "nom":"Badr",
+              "resultat":"Non"
+            },
+            {
+              "nom":"Badr",
+              "resultat":"Oui"
+            },{
+              "nom":"Badr",
+              "resultat":"Non"
+            },
+            {
+              "nom":"Badr",
+              "resultat":"Oui"
+            },{
+              "nom":"Badr",
+              "resultat":"Non"
+            },
+            {
+              "nom":"Badr",
+              "resultat":"Oui"
+            },{
+              "nom":"Badr",
+              "resultat":"Non"
+            },
+            {
+              "nom":"Badr",
+              "resultat":"Oui"
+            },{
+              "nom":"Badr",
+              "resultat":"Non"
+            }]
+          },
+          {
+              "domaine": "compétences transversales",
+              "champ": "compétences transversales",
+              "compétence": "Est-ce qu’il se repère dans la classe ?",
+              "compétence_spé": "intervient à bon escient",
+              "eleves":[{
+                "nom":"Badr",
+                "resultat":"Oui"
+              },{
+                "nom":"Badr",
+                "resultat":"Non"
+              },
+              {
+                "nom":"Badr",
+                "resultat":"Oui"
+              },{
+                "nom":"Badr",
+                "resultat":"Non"
+              },
+              {
+                "nom":"Badr",
+                "resultat":"Oui"
+              },{
+                "nom":"Badr",
+                "resultat":"Non"
+              },
+              {
+                "nom":"Badr",
+                "resultat":"Oui"
+              },{
+                "nom":"Badr",
+                "resultat":"Non"
+              },
+              {
+                "nom":"Badr",
+                "resultat":"Oui"
+              },{
+                "nom":"Badr",
+                "resultat":"Non"
+              }]
+            },
+            {
+                "domaine": "compétences transversales",
+                "champ": "compétences transversales",
+                "compétence": "Est-ce qu’il se repère dans la classe ?",
+                "compétence_spé": "intervient à bon escient",
+                "eleves":[{
+                  "nom":"Badr",
+                  "resultat":"Oui"
+                },{
+                  "nom":"Badr",
+                  "resultat":"Non"
+                },
+                {
+                  "nom":"Badr",
+                  "resultat":"Oui"
+                },{
+                  "nom":"Badr",
+                  "resultat":"Non"
+                },
+                {
+                  "nom":"Badr",
+                  "resultat":"Oui"
+                },{
+                  "nom":"Badr",
+                  "resultat":"Non"
+                },
+                {
+                  "nom":"Badr",
+                  "resultat":"Oui"
+                },{
+                  "nom":"Badr",
+                  "resultat":"Non"
+                },
+                {
+                  "nom":"Badr",
+                  "resultat":"Oui"
+                },{
+                  "nom":"Badr",
+                  "resultat":"Non"
+                }]
+              },
+              {
+                  "domaine": "compétences transversales",
+                  "champ": "compétences transversales",
+                  "compétence": "Est-ce qu’il se repère dans la classe ?",
+                  "compétence_spé": "intervient à bon escient",
+                  "eleves":[{
+                    "nom":"Badr",
+                    "resultat":"Oui"
+                  },{
+                    "nom":"Badr",
+                    "resultat":"Non"
+                  },
+                  {
+                    "nom":"Badr",
+                    "resultat":"Oui"
+                  },{
+                    "nom":"Badr",
+                    "resultat":"Non"
+                  },
+                  {
+                    "nom":"Badr",
+                    "resultat":"Oui"
+                  },{
+                    "nom":"Badr",
+                    "resultat":"Non"
+                  },
+                  {
+                    "nom":"Badr",
+                    "resultat":"Oui"
+                  },{
+                    "nom":"Badr",
+                    "resultat":"Non"
+                  },
+                  {
+                    "nom":"Badr",
+                    "resultat":"Oui"
+                  },{
+                    "nom":"Badr",
+                    "resultat":"Non"
+                  }]
+                },
+                {
+                    "domaine": "compétences transversales",
+                    "champ": "compétences transversales",
+                    "compétence": "Est-ce qu’il se repère dans la classe ?",
+                    "compétence_spé": "intervient à bon escient",
+                    "eleves":[{
+                      "nom":"Badr",
+                      "resultat":"Oui"
+                    },{
+                      "nom":"Badr",
+                      "resultat":"Non"
+                    },
+                    {
+                      "nom":"Badr",
+                      "resultat":"Oui"
+                    },{
+                      "nom":"Badr",
+                      "resultat":"Non"
+                    },
+                    {
+                      "nom":"Badr",
+                      "resultat":"Oui"
+                    },{
+                      "nom":"Badr",
+                      "resultat":"Non"
+                    },
+                    {
+                      "nom":"Badr",
+                      "resultat":"Oui"
+                    },{
+                      "nom":"Badr",
+                      "resultat":"Non"
+                    },
+                    {
+                      "nom":"Badr",
+                      "resultat":"Oui"
+                    },{
+                      "nom":"Badr",
+                      "resultat":"Non"
+                    }]
+                  },
+                  {
+                      "domaine": "compétences transversales",
+                      "champ": "compétences transversales",
+                      "compétence": "Est-ce qu’il se repère dans la classe ?",
+                      "compétence_spé": "intervient à bon escient",
+                      "eleves":[{
+                        "nom":"Badr",
+                        "resultat":"Oui"
+                      },{
+                        "nom":"Badr",
+                        "resultat":"Non"
+                      },
+                      {
+                        "nom":"Badr",
+                        "resultat":"Oui"
+                      },{
+                        "nom":"Badr",
+                        "resultat":"Non"
+                      },
+                      {
+                        "nom":"Badr",
+                        "resultat":"Oui"
+                      },{
+                        "nom":"Badr",
+                        "resultat":"Non"
+                      },
+                      {
+                        "nom":"Badr",
+                        "resultat":"Oui"
+                      },{
+                        "nom":"Badr",
+                        "resultat":"Non"
+                      },
+                      {
+                        "nom":"Badr",
+                        "resultat":"Oui"
+                      },{
+                        "nom":"Badr",
+                        "resultat":"Non"
+                      }]
+                    },
+                    {
+                        "domaine": "compétences transversales",
+                        "champ": "compétences transversales",
+                        "compétence": "Est-ce qu’il se repère dans la classe ?",
+                        "compétence_spé": "intervient à bon escient",
+                        "eleves":[{
+                          "nom":"Badr",
+                          "resultat":"Oui"
+                        },{
+                          "nom":"Badr",
+                          "resultat":"Non"
+                        },
+                        {
+                          "nom":"Badr",
+                          "resultat":"Oui"
+                        },{
+                          "nom":"Badr",
+                          "resultat":"Non"
+                        },
+                        {
+                          "nom":"Badr",
+                          "resultat":"Oui"
+                        },{
+                          "nom":"Badr",
+                          "resultat":"Non"
+                        },
+                        {
+                          "nom":"Badr",
+                          "resultat":"Oui"
+                        },{
+                          "nom":"Badr",
+                          "resultat":"Non"
+                        },
+                        {
+                          "nom":"Badr",
+                          "resultat":"Oui"
+                        },{
+                          "nom":"Badr",
+                          "resultat":"Non"
+                        }]
+                      }
+  ]
+}
