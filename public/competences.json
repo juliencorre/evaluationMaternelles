@@ -37,22 +37,22 @@
       "description": "description_2",
       "champs": [
         {
-          "id": 1,
+          "id": 2,
           "nom": "compétences transversales",
           "description": "description_1",
           "competences": [
             {
-              "id": 1,
+              "id": 2,
               "nom": "Est-ce qu’il se repère dans la classe ?",
               "description": "description_1",
               "competences_spe": [
                 {
-                  "id": 1,
+                  "id": 3,
                   "nom" : "intervient à bon escient",
                   "description": "description_1"
                 },
                 {
-                  "id": 2,
+                  "id": 4,
                   "nom" : "competence_spe_2",
                   "description": "description_2"
                 }

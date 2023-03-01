@@ -62,25 +62,25 @@ function getCompetences() {
  */
 function showAjouterDomaines() {
   console.log("showAjouterDomaine");
-    variables.myModal.show(variables.modalToggle);
-  
-/*
-  editEleve.id = eleve.id;
-  editEleve.prenom = eleve.prenom;
-  editEleve.nom = eleve.nom;
-  editEleve.date_naissance = eleve.date_naissance;
-  variables.editerEleveModal.show(variables.editerEleveModalToggle);
-  */
+  variables.myModal.show(variables.modalToggle);
+
+  /*
+    editEleve.id = eleve.id;
+    editEleve.prenom = eleve.prenom;
+    editEleve.nom = eleve.nom;
+    editEleve.date_naissance = eleve.date_naissance;
+    variables.editerEleveModal.show(variables.editerEleveModalToggle);
+    */
 
 };
 
-onMounted(() => initialisation(),getCompetences() )
+onMounted(() => initialisation(), getCompetences())
 </script>
 
 
 <template>
+  <div class="competence-page container-fluid">
 
-  <div class="container-fluid">
 
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3  ">
       <h1 class="h2">Compétences</h1>
@@ -92,198 +92,109 @@ onMounted(() => initialisation(),getCompetences() )
         </button>
       </div>
     </div>
+  <hr>
 
-    <div class="row">
-    <div class="col eval-menu">
-      <ul class="">
-        <li class="list-group-item pb-0 border-bottom-0" v-for="domaine in competences.domaines">
-          <div class=" eval-selector d-flex justify-content-between align-items-center ">
-            <div>
-              <i class="bi bi-caret-down-fill"></i>
-              <span class="ms-2">{{ domaine.nom }}</span>
-              <span class="ms-2 fst-italic" >{{ domaine.description}}</span>
-            </div>
-            <div class="bouton-selection" >
-              <a type="button" class="btn btn-outline-primary btn-sm pt-0 pb-0"><i class="bi bi-plus" ></i></a>
-              <a type="button" class="btn btn-outline-primary btn-sm pt-0 pb-0 ms-2"><i class="bi bi-pencil" ></i></a>
-              <a type="button" class="btn btn-outline-primary btn-sm pt-0 pb-0 ms-2" ><i class="bi bi-trash" ></i></a>
-            </div>
-          </div>
-          <ul class="list-group">
-            <li class="list-group-item pb-0 border-bottom-0" v-for="champ in domaine.champs">
-              <div class=" eval-selector d-flex justify-content-between align-items-center ">
-                <div><i class="bi bi-caret-down-fill"></i><span class="ms-2">{{ champ.nom }}</span>
-                  <span class="ms-2 fst-italic" >{{ champ.description}}</span>
-                </div>
-                <div class="bouton-selection" >
-                  <a type="button" class="btn btn-outline-primary btn-sm pt-0 pb-0"><i class="bi bi-plus" ></i></a>
-                  <a type="button" class="btn btn-outline-primary btn-sm pt-0 pb-0 ms-2"><i class="bi bi-pencil" ></i></a>
-                  <a type="button" class="btn btn-outline-primary btn-sm pt-0 pb-0 ms-2" ><i class="bi bi-trash" ></i></a>
-                </div>
-              </div>
-              <ul class="list-group">
-                <li class="list-group-item pb-0 border-bottom-0" v-for="competence in champ.competences">
-                  <div class=" eval-selector d-flex justify-content-between align-items-center ">
-                    <div><i class="bi bi-caret-down-fill"></i><span class="ms-2">{{ competence.nom }}</span>
-                      <span class="ms-2 fst-italic" >{{ competence.description}}</span>
-                    </div>
-                    <div class="bouton-selection" >
-                      <a type="button" class="btn btn-outline-primary btn-sm pt-0 pb-0"><i class="bi bi-plus" ></i></a>
-                      <a type="button" class="btn btn-outline-primary btn-sm pt-0 pb-0 ms-2"><i class="bi bi-pencil" ></i></a>
-                      <a type="button" class="btn btn-outline-primary btn-sm pt-0 pb-0 ms-2" ><i class="bi bi-trash" ></i></a>
-                    </div>
-                  </div>
-                  <ul class="list-group ">
-                    <li class="list-group-item" v-for="competences_spe in competence.competences_spe">
-                      <div class="eval-selector d-flex justify-content-between align-items-center pb-0">
-                        <div>
-                          <!--i class="bi bi-dot"></i--><span class=" ms-2">{{ competences_spe.nom }}</span>
-                          <span class="ms-2 fst-italic" >{{ competences_spe.description}}</span>
-                        </div>
-                        <div class="bouton-selection" >
-                          <a type="button" class="btn btn-outline-primary btn-sm pt-0 pb-0 ms-2"><i class="bi bi-pencil" ></i></a>
-                          <a type="button" class="btn btn-outline-primary btn-sm pt-0 pb-0 ms-2" ><i class="bi bi-trash" ></i></a>
-                        </div>
+  <div class="row">
+      <div class="col eval-menu">
+
+            <ul class="list-unstyled ps-0">
+              <!--Liste des domaines-->
+              <li class="mb-0" v-for="domaine in competences.domaines">
+                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                  data-bs-toggle="collapse" :data-bs-target="`#domaine-collapse-${domaine.id}`" aria-expanded="true">
+                  {{ domaine.nom }}
+                </button>
+                <div class="collapse" :id="`domaine-collapse-${domaine.id}`">
+                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-0 small">
+                    <!--Liste des champs-->
+                    <li class="mb-0" v-for="champ in domaine.champs">
+                      <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                        data-bs-toggle="collapse" :data-bs-target="`#champ-collapse-${champ.id}`" aria-expanded="true">
+                        {{ champ.nom }}
+                      </button>
+                      <div class="collapse" :id="`champ-collapse-${champ.id}`">
+                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-0 small">
+                          <!--Liste des competence-->
+                          <li class="mb-0" v-for="competence in champ.competences">
+                            <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                              data-bs-toggle="collapse" :data-bs-target="`#competence-collapse-${competence.id}`"
+                              aria-expanded="true">
+                              {{ competence.nom }}
+                            </button>
+                            <div class="collapse" :id="`competence-collapse-${competence.id}`">
+                              <ul class="btn-toggle-nav list-unstyled fw-normal pb-0 small">
+                                <!--Liste des competences_spe-->
+                                <li v-for="competences_spe in competence.competences_spe">
+                                  <button class="btn btn-list d-inline-flex align-items-center rounded border-0 collapsed"
+                                    aria-expanded="true">
+                                    {{ competences_spe.nom }}
+                                  </button>
+                                </li>
+                              </ul>
+                            </div>
+                          </li>
+                        </ul>
                       </div>
                     </li>
                   </ul>
-                </li>
-                <!--li class="list-group-item pb-0 border-bottom-0">
-                  <div class="d-flex justify-content-between align-items-center" >
-                    <div><i class="bi bi-chevron-right"></i><span class="ms-2">Compétence</span></div>
-                    <div class="" >
-                      <a type="button" class="btn btn-outline-primary btn-sm pt-0 pb-0"><i class="bi bi-plus" ></i></a>
-                      <a type="button" class="btn btn-outline-primary btn-sm pt-0 pb-0 ms-2"><i class="bi bi-pencil" ></i></a>
-                      <a type="button" class="btn btn-outline-primary btn-sm pt-0 pb-0 ms-2" ><i class="bi bi-trash" ></i></a>
-                    </div>
-                  </div>
-                </li-->
-              </ul>
-            </li>
-          </ul>
-        </li>
-
-
-        <li class="list-group-item pb-0 border-bottom-0" >
-          <div class="d-flex justify-content-between align-items-center ">
-            <div><i class="bi bi-caret-down-fill"></i><span class="ms-2">Domaine</span></div>
-            <div class="bouton-selection" >
-              <a type="button" class="btn btn-outline-primary btn-sm pt-0 pb-0"><i class="bi bi-plus" ></i></a>
-              <a type="button" class="btn btn-outline-primary btn-sm pt-0 pb-0 ms-2"><i class="bi bi-pencil" ></i></a>
-              <a type="button" class="btn btn-outline-primary btn-sm pt-0 pb-0 ms-2" ><i class="bi bi-trash" ></i></a>
-            </div>
-          </div>
-          <ul class="list-group">
-            <li class="list-group-item pb-0 border-bottom-0">
-              <div class="eval-selector d-flex justify-content-between align-items-center ">
-                <div><i class="bi bi-caret-down-fill"></i><span class=" ms-2">Champ</span></div>
-                <div class="bouton-selection" >
-                  <a type="button" class="btn btn-outline-primary btn-sm pt-0 pb-0"><i class="bi bi-plus" ></i></a>
-                  <a type="button" class="btn btn-outline-primary btn-sm pt-0 pb-0 ms-2"><i class="bi bi-pencil" ></i></a>
-                  <a type="button" class="btn btn-outline-primary btn-sm pt-0 pb-0 ms-2" ><i class="bi bi-trash" ></i></a>
                 </div>
-              </div>
-              <ul class="list-group">
-                <li class="list-group-item pb-0 border-bottom-0">
-                  <div class="eval-selector d-flex justify-content-between align-items-center ">
-                    <div><i class="bi bi-caret-down-fill"></i><span class="ms-2">Compétence</span></div>
-                    <div class="bouton-selection" >
-                      <a type="button" class="btn btn-outline-primary btn-sm pt-0 pb-0"><i class="bi bi-plus" ></i></a>
-                      <a type="button" class="btn btn-outline-primary btn-sm pt-0 pb-0 ms-2"><i class="bi bi-pencil" ></i></a>
-                      <a type="button" class="btn btn-outline-primary btn-sm pt-0 pb-0 ms-2" ><i class="bi bi-trash" ></i></a>
-                    </div>
-                  </div>
-                  <ul class="list-group">
-                    <li class="list-group-item">
-                      <div class="eval-selector d-flex justify-content-between align-items-center pb-1">
-                      <div><span class="ms-2">Compétence spé n°1</span></div>
-                      <div class="bouton-selection" >
-                        <a type="button" class="btn btn-outline-primary btn-sm pt-0 pb-0 ms-2"><i class="bi bi-pencil" ></i></a>
-                        <a type="button" class="btn btn-outline-primary btn-sm pt-0 pb-0 ms-2" ><i class="bi bi-trash" ></i></a>
-                      </div>
-                      </div>
-                    </li>
-                    <li class="list-group-item">
-                      <div class=" eval-selector d-flex justify-content-between align-items-center pb-1">
-                        <div><span class="ms-2">Compétence spé n°2</span></div>
-                        <div class="bouton-selection" >
-                          <a type="button" class="btn btn-outline-primary btn-sm pt-0 pb-0 ms-2"><i class="bi bi-pencil" ></i></a>
-                          <a type="button" class="btn btn-outline-primary btn-sm pt-0 pb-0 ms-2" ><i class="bi bi-trash" ></i></a>
-                        </div>
-                      </div>
-                    </li>
-                </ul>
               </li>
-                <li class="list-group-item pb-0 border-bottom-0">
-                  <div class="eval-selector d-flex /*justify-content-between align-items-center*/" >
-                    <div><i class="bi bi-caret-right-fill"></i><span class="ms-2">Compétence</span></div>
-                    <div class="bouton-selection ms-2" >
-                      <a type="button" class="btn btn-outline-primary btn-sm pt-0 pb-0"><i class="bi bi-plus" ></i></a>
-                      <a type="button" class="btn btn-outline-primary btn-sm pt-0 pb-0 ms-2"><i class="bi bi-pencil" ></i></a>
-                      <a type="button" class="btn btn-outline-primary btn-sm pt-0 pb-0 ms-2" ><i class="bi bi-trash" ></i></a>
-                    </div>
-                  </div>
-                </li>
             </ul>
-            </li>
-          </ul>
-        </li>
-    </ul>
-  </div>
-  
-  <div class="col">
-    
-    <div class="card" style="shadow">
-      <div class="card-body">
-        <h5 class="card-title">Compétence</h5>
         
-        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <!--ul class="list-group">
-          <li class="list-group-item">An item</li>
-          <li class="list-group-item">A second item</li>
-          <li class="list-group-item">A third item</li>
-          <li class="list-group-item">A fourth item</li>
-          <li class="list-group-item">And a fifth one</li>
-        </ul-->
-    
-  
-        <table class="table">
-                <tbody>
-                  <tr>
-                    <td>Type de valeur</td>
-                    <td>numérique</td>
-                  </tr>
-                  <tr>
-                    <td>Valeur minimale</td>
-                    <td>0</td>
-                  </tr>
-                  <tr>
-                    <td >Valeur maximale </td>
-                    <td >50</td>
-                  </tr>
-                </tbody>
-              </table>  
+      </div>
+
+      <div class="col competence-detail">
+
+            <h5 class="card-title">Compétence</h5>
+
+            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+            <!--ul class="list-group">
+            <li class="list-group-item">An item</li>
+            <li class="list-group-item">A second item</li>
+            <li class="list-group-item">A third item</li>
+            <li class="list-group-item">A fourth item</li>
+            <li class="list-group-item">And a fifth one</li>
+          </ul-->
 
 
-      
-        <div class="mt-4 d-flex">
-          <div class="w-100">
-          <a href="#" class="ms-2 btn btn-primary">Nouvelle sous compétence</a>
-          </div>
-          <div class="flex-shrink-1 ">
-            <a type="button" class=" btn  p-0 " ><i class="fs-4 bi bi-three-dots-vertical"></i></a>
-          </div>
-        </div>
+            <table class="table">
+              <tbody>
+                <tr>
+                  <td>Type de valeur</td>
+                  <td>numérique</td>
+                </tr>
+                <tr>
+                  <td>Valeur minimale</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td>Valeur maximale </td>
+                  <td>50</td>
+                </tr>
+              </tbody>
+            </table>
 
-        </div>
-      
+
+
+            <div class="mt-4 d-flex">
+              <div class="w-100">
+                <a href="#" class="ms-2 btn btn-primary">Nouvelle sous compétence</a>
+              </div>
+              <div class="flex-shrink-1 ">
+                <a type="button" class=" btn  p-0 "><i class="fs-4 bi bi-three-dots-vertical"></i></a>
+              </div>
+            </div>
+
+          
+
+       
+
+      </div>
+
     </div>
-
   </div>
-
-</div>
-</div>
 
 
 
@@ -311,29 +222,27 @@ onMounted(() => initialisation(),getCompetences() )
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-          <button type="button" class="btn btn-primary" >Créer</button>
+          <button type="button" class="btn btn-primary">Créer</button>
         </div>
       </div>
     </div>
   </div>
-
 </template>
 
 <style scoped>
-
-.list-group{
+.list-group {
   --bs-list-group-border-radius: 0rem;
-  
+
 }
 
-ul{
+ul {
   padding-left: 0.5rem;
   padding-top: 0;
   padding-bottom: 0;
-  background-color: rgb(252, 252, 252);
+  
 }
 
-li{
+li {
   padding-right: 0;
   padding-top: 0;
   padding-bottom: 0;
@@ -341,21 +250,19 @@ li{
   border-right-width: 0;
   border-top-width: 0;
   border-bottom-width: 0;
-  background-color: rgb(252, 252, 252);
+  
 }
 
 .eval-selector:hover {
-  
+
   opacity: 0.7;
   background-color: rgb(242, 242, 242);
-  cursor:pointer;
+  cursor: pointer;
 }
 
-.bouton-selection {
-  display: none;
-}
 
-.eval-selector:hover > .bouton-selection {
+
+.eval-selector:hover>.bouton-selection {
   display: block
 }
 
@@ -363,11 +270,109 @@ li{
 .card {
   border-radius: 1rem;
   background-color: rgb(255, 255, 255);
+  margin-top:1rem;
 }
 
-.container-fluid
-{
-  background-color: rgb(252, 252, 252);
+
+
+
+.eval-menu{
+  
+  margin-top:1rem;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  top: 130px;
+  width: 50%;
 }
+
+
+.competence-detail
+{
+  border-left:solid;
+  border-left-width: 0.1rem;
+  border-color: #dbdada;
+  position: absolute;
+  right: 0;
+  top: 135px;
+  bottom: 0;
+  width: 50%;
+  background-color: white;
+  padding: 1rem 1rem 1rem 1rem;
+}
+
+hr{
+  
+  margin-bottom: 0;
+}
+.dropdown-toggle {
+  outline: 0;
+}
+
+.btn-toggle {
+  padding: .25rem .5rem;
+  font-weight: 600;
+  color: rgba(0, 0, 0, .65);
+  background-color: transparent;
+  padding: 0;
+
+}
+
+.btn-list {
+  padding: 0 1.25rem;
+}
+
+.btn-toggle:hover,
+.btn-toggle:focus {
+  color: rgba(0, 0, 0, .85);
+  background-color: #d2f4ea;
+}
+
+.btn-toggle::before {
+  width: 1.25em;
+  line-height: 0;
+  content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%280,0,0,.5%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
+  transition: transform .35s ease;
+  transform-origin: .5em 50%;
+}
+
+.btn-toggle[aria-expanded="true"] {
+  color: rgba(0, 0, 0, .85);
+}
+
+.btn-toggle[aria-expanded="true"]::before {
+  transform: rotate(90deg);
+}
+
+.btn-toggle-nav a {
+  padding: .1875rem .5rem;
+  margin-top: .125rem;
+  margin-left: 1.25rem;
+}
+
+.btn-toggle-nav a:hover,
+.btn-toggle-nav a:focus {
+  background-color: #d2f4ea;
+}
+
+.scrollarea {
+  overflow-y: auto;
+}
+
+
+
+.collapse {
+  border: solid;
+  border-width: 2;
+  margin-left: 0.50rem;
+  border-width: 0 0 0 .1rem;
+  border-color: #dbdada;
+}
+
+
+
+
+
+
 
 </style>

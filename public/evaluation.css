@@ -1,0 +1,16 @@
+ body {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+    background-color: rgb(252, 252, 252);
+  }
+  
+  html {
+    height: -webkit-fill-available;
+    
+  }
+
+  #app{
+    min-height: 100vh;
+  }
+
+ 
