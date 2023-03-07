@@ -26,3 +26,7 @@ coverage
 *.njsproj
 *.sln
 *.sw?
+/.vs/evaluationMaternelles/FileContentIndex
+/.vs/evaluationMaternelles/v17/.wsuo
+/.vs/slnx.sqlite
+/.vs

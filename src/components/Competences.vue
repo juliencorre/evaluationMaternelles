@@ -9,10 +9,8 @@ defineProps<{
   //msg: string;
 }>();
 
-
-
 const competences = reactive({
-  c: []
+  domaines : null
 });
 
 const variables = reactive({
@@ -43,7 +41,8 @@ function getCompetences() {
 
   axios({
     method: "GET",
-    "url": "http://localhost:5173/competences.json"
+    "url": "/competences.json"
+    //"url": "http://localhost:5173/competences.json"
     //"url": "http://127.0.0.1:8000/api/eleves"
 
   }).then(result => {
@@ -88,7 +87,7 @@ onMounted(() => initialisation(), getCompetences())
 
         <button type="button" class="btn btn-sm btn-outline-primary " v-on:click="showAjouterDomaines">
           <span data-feather="calendar" class="align-text-bottom"></span>
-          Nouveau domaine
+          Nouvelle compétence
         </button>
       </div>
     </div>
@@ -145,7 +144,15 @@ onMounted(() => initialisation(), getCompetences())
 
       <div class="col competence-detail">
 
-            <h5 class="card-title">Compétence</h5>
+        <div class="mt-4 d-flex">
+              <div class="w-100">
+                <h5 class="card-title">Compétence</h5>
+              </div>
+              <div class="flex-shrink-1 ">
+                <a type="button" class=" btn  p-0 "><i class="fs-4 bi bi-three-dots-vertical"></i></a>
+              </div>
+            </div>
+            
 
             <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
@@ -178,14 +185,7 @@ onMounted(() => initialisation(), getCompetences())
 
 
 
-            <div class="mt-4 d-flex">
-              <div class="w-100">
-                <a href="#" class="ms-2 btn btn-primary">Nouvelle sous compétence</a>
-              </div>
-              <div class="flex-shrink-1 ">
-                <a type="button" class=" btn  p-0 "><i class="fs-4 bi bi-three-dots-vertical"></i></a>
-              </div>
-            </div>
+            
 
           
 
@@ -203,7 +203,7 @@ onMounted(() => initialisation(), getCompetences())
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Créer un nouveau domaine</h1>
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Créer une nouvelle compétence</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
