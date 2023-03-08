@@ -13,6 +13,10 @@ const competences = reactive({
   domaines : null
 });
 
+const competence = reactive({
+    competence: null
+});
+
 const variables = reactive({
   myModal: null,
   modalToggle: null,
@@ -71,7 +75,24 @@ function showAjouterDomaines() {
     variables.editerEleveModal.show(variables.editerEleveModalToggle);
     */
 
-};
+    };
+
+    function showCompetence(id) {
+        console.log("showCompetence: " + id);
+
+        axios({
+            method: "GET",
+            "url": "/competences_"+id+".json"
+        }).then(result => {
+
+            console.log("Retour du service, :result.data: " + result.data);
+            competence.competence = result.data;
+
+        }, error => {
+            console.error(error);
+        });
+
+    }
 
 onMounted(() => initialisation(), getCompetences())
 </script>
@@ -103,7 +124,7 @@ onMounted(() => initialisation(), getCompetences())
                   data-bs-toggle="collapse" :data-bs-target="`#domaine-collapse-${domaine.id}`" aria-expanded="true">
                   {{ domaine.nom }}
                 </button>
-                <div class="collapse" :id="`domaine-collapse-${domaine.id}`">
+                <div class="collapse lignVerticale" :id="`domaine-collapse-${domaine.id}`">
                   <ul class="btn-toggle-nav list-unstyled fw-normal pb-0 small">
                     <!--Liste des champs-->
                     <li class="mb-0" v-for="champ in domaine.champs">
@@ -111,7 +132,7 @@ onMounted(() => initialisation(), getCompetences())
                         data-bs-toggle="collapse" :data-bs-target="`#champ-collapse-${champ.id}`" aria-expanded="true">
                         {{ champ.nom }}
                       </button>
-                      <div class="collapse" :id="`champ-collapse-${champ.id}`">
+                      <div class="collapse lignVerticale" :id="`champ-collapse-${champ.id}`">
                         <ul class="btn-toggle-nav list-unstyled fw-normal pb-0 small">
                           <!--Liste des competence-->
                           <li class="mb-0" v-for="competence in champ.competences">
@@ -120,12 +141,12 @@ onMounted(() => initialisation(), getCompetences())
                               aria-expanded="true">
                               {{ competence.nom }}
                             </button>
-                            <div class="collapse" :id="`competence-collapse-${competence.id}`">
+                            <div class="collapse lignVerticale" :id="`competence-collapse-${competence.id}`">
                               <ul class="btn-toggle-nav list-unstyled fw-normal pb-0 small">
                                 <!--Liste des competences_spe-->
                                 <li v-for="competences_spe in competence.competences_spe">
-                                  <button class="btn btn-list d-inline-flex align-items-center rounded border-0 collapsed"
-                                    aria-expanded="true">
+                                  <button class="btn-selector btn btn-list d-inline-flex align-items-center rounded border-0 collapsed"
+                                    aria-expanded="true" v-on:click="showCompetence(competences_spe.id)">
                                     {{ competences_spe.nom }}
                                   </button>
                                 </li>
@@ -142,11 +163,11 @@ onMounted(() => initialisation(), getCompetences())
         
       </div>
 
-      <div class="col competence-detail">
+      <div v-if="competence.competence" class="col competence-detail">
 
         <div class="mt-4 d-flex">
               <div class="w-100">
-                <h5 class="card-title">Compétence</h5>
+                  <h5 class="card-title">{{ competence.competence.nom }}</h5>
               </div>
               <div class="flex-shrink-1 ">
                 <a type="button" class=" btn  p-0 "><i class="fs-4 bi bi-three-dots-vertical"></i></a>
@@ -155,16 +176,7 @@ onMounted(() => initialisation(), getCompetences())
             
 
             <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-              content.</p>
-            <!--ul class="list-group">
-            <li class="list-group-item">An item</li>
-            <li class="list-group-item">A second item</li>
-            <li class="list-group-item">A third item</li>
-            <li class="list-group-item">A fourth item</li>
-            <li class="list-group-item">And a fifth one</li>
-          </ul-->
-
+            <p class="card-text">{{ competence.competence.description }}</p>
 
             <table class="table">
               <tbody>
@@ -182,22 +194,9 @@ onMounted(() => initialisation(), getCompetences())
                 </tr>
               </tbody>
             </table>
-
-
-
-            
-
-          
-
-       
-
       </div>
-
     </div>
   </div>
-
-
-
   <!-- Modal d'ajout d'un eleve -->
   <div class="modal fade" id="newDomaineModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -228,20 +227,15 @@ onMounted(() => initialisation(), getCompetences())
     </div>
   </div>
 </template>
-
 <style scoped>
 .list-group {
   --bs-list-group-border-radius: 0rem;
-
 }
-
 ul {
   padding-left: 0.5rem;
   padding-top: 0;
   padding-bottom: 0;
-  
 }
-
 li {
   padding-right: 0;
   padding-top: 0;
@@ -250,34 +244,23 @@ li {
   border-right-width: 0;
   border-top-width: 0;
   border-bottom-width: 0;
-  
 }
-
+/*
 .eval-selector:hover {
-
   opacity: 0.7;
   background-color: rgb(242, 242, 242);
   cursor: pointer;
 }
-
-
-
 .eval-selector:hover>.bouton-selection {
   display: block
 }
-
-
+*/
 .card {
   border-radius: 1rem;
   background-color: rgb(255, 255, 255);
   margin-top:1rem;
 }
-
-
-
-
 .eval-menu{
-  
   margin-top:1rem;
   position: absolute;
   left: 0;
@@ -285,8 +268,6 @@ li {
   top: 130px;
   width: 50%;
 }
-
-
 .competence-detail
 {
   border-left:solid;
@@ -300,34 +281,32 @@ li {
   background-color: white;
   padding: 1rem 1rem 1rem 1rem;
 }
-
 hr{
-  
   margin-bottom: 0;
 }
 .dropdown-toggle {
   outline: 0;
 }
-
 .btn-toggle {
   padding: .25rem .5rem;
   font-weight: 600;
   color: rgba(0, 0, 0, .65);
   background-color: transparent;
   padding: 0;
-
 }
-
 .btn-list {
   padding: 0 1.25rem;
 }
-
+ .btn-selector:hover,
+ .btn-selector:hover {
+        color: rgba(0, 0, 0, .85);
+        background-color: #d2f4ea;
+    }
 .btn-toggle:hover,
 .btn-toggle:focus {
   color: rgba(0, 0, 0, .85);
   background-color: #d2f4ea;
 }
-
 .btn-toggle::before {
   width: 1.25em;
   line-height: 0;
@@ -335,32 +314,25 @@ hr{
   transition: transform .35s ease;
   transform-origin: .5em 50%;
 }
-
 .btn-toggle[aria-expanded="true"] {
   color: rgba(0, 0, 0, .85);
 }
-
 .btn-toggle[aria-expanded="true"]::before {
   transform: rotate(90deg);
 }
-
 .btn-toggle-nav a {
   padding: .1875rem .5rem;
   margin-top: .125rem;
   margin-left: 1.25rem;
 }
-
 .btn-toggle-nav a:hover,
 .btn-toggle-nav a:focus {
   background-color: #d2f4ea;
 }
-
 .scrollarea {
   overflow-y: auto;
 }
-
-
-
+    /*
 .collapse {
   border: solid;
   border-width: 2;
@@ -368,11 +340,12 @@ hr{
   border-width: 0 0 0 .1rem;
   border-color: #dbdada;
 }
-
-
-
-
-
-
-
+    */
+    .lignVerticale {
+        border: solid;
+        border-width: 2;
+        margin-left: 0.50rem;
+        border-width: 0 0 0 .1rem;
+        border-color: #dbdada;
+    }
 </style>
