@@ -1,104 +1,101 @@
 <script setup lang="ts">
-import axios from 'axios';
-import {
-  onMounted,
-  reactive
-} from 'vue';
 
-defineProps<{
-  //msg: string;
-}>();
+    import axios from 'axios';
 
-const competences = reactive({
-  domaines : null
-});
+    import CompetenceSpeDetail from "./CompetenceSpeDetail.vue";
 
-const competence = reactive({
-    competence: null
-});
-
-const variables = reactive({
-  myModal: null,
-  modalToggle: null,
-});
-
-const newDomaine = reactive({
-  nom: null,
-  description: null,
-});
-
-function initialisation() {
-
-  variables.myModal = new bootstrap.Modal('#newDomaineModal', {
-    keyboard: false
-  });
-
-  variables.modalToggle = document.getElementById('newDomaineModal');
+    import {
+      onMounted,
+      reactive
+    } from 'vue';
 
 
-};
+    const competences = reactive({
+      domaines : null
+    });
 
-/**
- * Récupérer les compétences
- */
-function getCompetences() {
+    const competence = reactive({
+        competence: null
+    });
 
-  axios({
-    method: "GET",
-    "url": "/competences.json"
-    //"url": "http://localhost:5173/competences.json"
-    //"url": "http://127.0.0.1:8000/api/eleves"
+    const competenceId = reactive({
+        competenceId: 1
+    });
 
-  }).then(result => {
+    const variables = reactive({
+      myModal: null,
+      modalToggle: null,
+    });
 
-    console.log("Retour du service, :result.data: " + result.data);
-    competences.domaines = result.data.domaines;
+    const newDomaine = reactive({
+      nom: null,
+      description: null,
+    });
 
-  }, error => {
-    console.error(error);
-  });
+    function initialisation() {
 
-};
+      variables.myModal = new bootstrap.Modal('#newDomaineModal', {
+        keyboard: false
+      });
 
-/**
- * Afficher la fenetre modale d'ajout d'un domaine
- */
-function showAjouterDomaines() {
-  console.log("showAjouterDomaine");
-  variables.myModal.show(variables.modalToggle);
+      variables.modalToggle = document.getElementById('newDomaineModal');
 
-  /*
-    editEleve.id = eleve.id;
-    editEleve.prenom = eleve.prenom;
-    editEleve.nom = eleve.nom;
-    editEleve.date_naissance = eleve.date_naissance;
-    variables.editerEleveModal.show(variables.editerEleveModalToggle);
-    */
 
     };
 
-    function showCompetence(id) {
-        console.log("showCompetence: " + id);
+    /**
+     * Récupérer les compétences
+     */
+    function getCompetences() {
 
-        axios({
-            method: "GET",
-            "url": "/competences_"+id+".json"
-        }).then(result => {
+      axios({
+        method: "GET",
+        "url": "/competences.json"
+        //"url": "http://localhost:5173/competences.json"
+        //"url": "http://127.0.0.1:8000/api/eleves"
 
-            console.log("Retour du service, :result.data: " + result.data);
-            competence.competence = result.data;
+      }).then(result => {
 
-        }, error => {
-            console.error(error);
-        });
+        console.log("Retour du service, :result.data: " + result.data);
+        competences.domaines = result.data.domaines;
 
+      }, error => {
+        console.error(error);
+      });
+
+    };
+
+    /**
+     * Afficher la fenetre modale d'ajout d'un domaine
+     */
+    function showAjouterDomaines() {
+      console.log("showAjouterDomaine");
+      variables.myModal.show(variables.modalToggle);
+
+      /*
+        editEleve.id = eleve.id;
+        editEleve.prenom = eleve.prenom;
+        editEleve.nom = eleve.nom;
+        editEleve.date_naissance = eleve.date_naissance;
+        variables.editerEleveModal.show(variables.editerEleveModalToggle);
+        */
+
+    };
+
+    function showCompetenceSpeDetail(id)
+    {
+        console.log(id)
+        competenceId.competenceId=id
     }
 
-onMounted(() => initialisation(), getCompetences())
+
+    onMounted(() => initialisation(), getCompetences())
 </script>
 
 
 <template>
+
+    
   <div class="competence-page container-fluid">
 
 
@@ -146,7 +143,7 @@ onMounted(() => initialisation(), getCompetences())
                                 <!--Liste des competences_spe-->
                                 <li v-for="competences_spe in competence.competences_spe">
                                   <button class="btn-selector btn btn-list d-inline-flex align-items-center rounded border-0 collapsed"
-                                    aria-expanded="true" v-on:click="showCompetence(competences_spe.id)">
+                                    aria-expanded="true" v-on:click="showCompetenceSpeDetail(competences_spe.id)">
                                     {{ competences_spe.nom }}
                                   </button>
                                 </li>
@@ -160,40 +157,11 @@ onMounted(() => initialisation(), getCompetences())
                 </div>
               </li>
             </ul>
-        
+
       </div>
 
-      <div v-if="competence.competence" class="col competence-detail">
-
-        <div class="mt-4 d-flex">
-              <div class="w-100">
-                  <h5 class="card-title">{{ competence.competence.nom }}</h5>
-              </div>
-              <div class="flex-shrink-1 ">
-                <a type="button" class=" btn  p-0 "><i class="fs-4 bi bi-three-dots-vertical"></i></a>
-              </div>
-            </div>
-            
-
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-            <p class="card-text">{{ competence.competence.description }}</p>
-
-            <table class="table">
-              <tbody>
-                <tr>
-                  <td>Type de valeur</td>
-                  <td>numérique</td>
-                </tr>
-                <tr>
-                  <td>Valeur minimale</td>
-                  <td>0</td>
-                </tr>
-                <tr>
-                  <td>Valeur maximale </td>
-                  <td>50</td>
-                </tr>
-              </tbody>
-            </table>
+      <div class="col detailRight">
+          <CompetenceSpeDetail :id="`${competenceId.competenceId}`"/>   
       </div>
     </div>
   </div>
@@ -268,19 +236,7 @@ li {
   top: 130px;
   width: 50%;
 }
-.competence-detail
-{
-  border-left:solid;
-  border-left-width: 0.1rem;
-  border-color: #dbdada;
-  position: absolute;
-  right: 0;
-  top: 135px;
-  bottom: 0;
-  width: 50%;
-  background-color: white;
-  padding: 1rem 1rem 1rem 1rem;
-}
+
 hr{
   margin-bottom: 0;
 }
@@ -347,5 +303,19 @@ hr{
         margin-left: 0.50rem;
         border-width: 0 0 0 .1rem;
         border-color: #dbdada;
+    }
+
+
+    .detailRight {
+        border-left: solid;
+        border-left-width: 0.1rem;
+        border-color: #dbdada;
+        position: absolute;
+        right: 0;
+        top: 135px;
+        bottom: 0;
+        width: 50%;
+        background-color: white;
+        padding: 1rem 1rem 1rem 1rem;
     }
 </style>
