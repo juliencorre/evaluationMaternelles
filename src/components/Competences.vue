@@ -2,11 +2,16 @@
 
     import axios from 'axios';
 
+    import DomaineDetail from "./DomaineDetail.vue";
+    import ChampDetail from "./ChampDetail.vue";
+    import CompetenceDetail from "./CompetenceDetail.vue";
     import CompetenceSpeDetail from "./CompetenceSpeDetail.vue";
+  
 
     import {
       onMounted,
-      reactive
+        reactive,
+        ref
     } from 'vue';
 
 
@@ -18,8 +23,17 @@
         competence: null
     });
 
-    const competenceId = reactive({
-        competenceId: null
+    // identifiant des elements courants
+    const elementsActifs = reactive({
+        domaineId: null,
+        champId: null,
+        comptetenceId: null,
+        competenceSpeId: null,
+        displayDomaineDetail: false,
+        displayChampDetail: false,
+        displayCompetenceDetail: false,
+        displayCompetenceSpeDetail: false,
+        
     });
 
     const variables = reactive({
@@ -72,20 +86,48 @@
       console.log("showAjouterDomaine");
       variables.myModal.show(variables.modalToggle);
 
-      /*
-        editEleve.id = eleve.id;
-        editEleve.prenom = eleve.prenom;
-        editEleve.nom = eleve.nom;
-        editEleve.date_naissance = eleve.date_naissance;
-        variables.editerEleveModal.show(variables.editerEleveModalToggle);
-        */
-
     };
+
+    function showDomainDetail(id) {
+        console.log(id)
+        elementsActifs.displayDomaineDetail= true
+        elementsActifs.displayChampDetail= false
+        elementsActifs.displayCompetenceDetail= false
+        elementsActifs.displayCompetenceSpeDetail = false
+
+        elementsActifs.domaineId = id
+    }
+
+    function showChampDetail(id) {
+        console.log(id)
+
+        elementsActifs.displayDomaineDetail = false
+        elementsActifs.displayChampDetail = true
+        elementsActifs.displayCompetenceDetail = false
+        elementsActifs.displayCompetenceSpeDetail = false
+        elementsActifs.champId = id
+    }
+
+    function showCompetenceDetail(id) {
+        console.log(id)
+
+        elementsActifs.displayDomaineDetail = false
+        elementsActifs.displayChampDetail = false
+        elementsActifs.displayCompetenceDetail = true
+        elementsActifs.displayCompetenceSpeDetail = false
+        elementsActifs.comptetenceId = id
+    }
 
     function showCompetenceSpeDetail(id)
     {
         console.log(id)
-        competenceId.competenceId=id
+       
+        elementsActifs.displayDomaineDetail = false
+        elementsActifs.displayChampDetail = false
+        elementsActifs.displayCompetenceDetail = false
+        elementsActifs.displayCompetenceSpeDetail = true
+        elementsActifs.competenceSpeId = id
+
     }
 
 
@@ -118,7 +160,8 @@
               <!--Liste des domaines-->
               <li class="mb-0" v-for="domaine in competences.domaines">
                 <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-                  data-bs-toggle="collapse" :data-bs-target="`#domaine-collapse-${domaine.id}`" aria-expanded="true">
+                  data-bs-toggle="collapse" :data-bs-target="`#domaine-collapse-${domaine.id}`" aria-expanded="true"
+                        v-on:click="showDomainDetail(domaine.id)">
                   {{ domaine.nom }}
                 </button>
                 <div class="collapse lignVerticale" :id="`domaine-collapse-${domaine.id}`">
@@ -126,7 +169,8 @@
                     <!--Liste des champs-->
                     <li class="mb-0" v-for="champ in domaine.champs">
                       <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-                        data-bs-toggle="collapse" :data-bs-target="`#champ-collapse-${champ.id}`" aria-expanded="true">
+                        data-bs-toggle="collapse" :data-bs-target="`#champ-collapse-${champ.id}`" aria-expanded="true"
+                              v-on:click="showChampDetail(champ.id)">
                         {{ champ.nom }}
                       </button>
                       <div class="collapse lignVerticale" :id="`champ-collapse-${champ.id}`">
@@ -134,8 +178,8 @@
                           <!--Liste des competence-->
                           <li class="mb-0" v-for="competence in champ.competences">
                             <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-                              data-bs-toggle="collapse" :data-bs-target="`#competence-collapse-${competence.id}`"
-                              aria-expanded="true">
+                              data-bs-toggle="collapse" :data-bs-target="`#competence-collapse-${competence.id}`" aria-expanded="true"
+                                    v-on:click="showCompetenceDetail(competence.id)">
                               {{ competence.nom }}
                             </button>
                             <div class="collapse lignVerticale" :id="`competence-collapse-${competence.id}`">
@@ -161,7 +205,12 @@
       </div>
 
       <div class="col detailRight">
-          <CompetenceSpeDetail :id="`${competenceId.competenceId}`"/>   
+          <DomaineDetail :class="[elementsActifs.displayDomaineDetail == true ? 'd-block' : 'd-none']" :id="`${elementsActifs.domaineId}`" />
+          <ChampDetail :class="[elementsActifs.displayChampDetail == true ? 'd-block' : 'd-none']" :id="`${elementsActifs.champId}`" />
+          <CompetenceDetail :class="[elementsActifs.displayCompetenceDetail == true ? 'd-block' : 'd-none']" :id="`${elementsActifs.comptetenceId}`" />
+          <CompetenceSpeDetail :class="[elementsActifs.displayCompetenceSpeDetail == true ? 'd-block' : 'd-none']" :id="`${elementsActifs.competenceSpeId}`" />
+
+
       </div>
     </div>
   </div>
@@ -195,7 +244,6 @@
     </div>
   </div>
 </template>
-
 <style scoped>
     .list-group {
       --bs-list-group-border-radius: 0rem;
@@ -229,7 +277,6 @@
       background-color: rgb(255, 255, 255);
       margin-top:1rem;
     }
-
     .eval-menu{
       margin-top:1rem;
       position: absolute;
@@ -238,7 +285,6 @@
       top: 5rem;
       width: 50%;
     }
-
     hr{
       margin-bottom: 0;
     }
@@ -306,8 +352,6 @@
         border-width: 0 0 0 .1rem;
         border-color: #dbdada;
     }
-
-
     .detailRight {
         border-left: solid;
         border-left-width: 0.1rem;

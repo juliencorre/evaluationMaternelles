@@ -47,11 +47,13 @@
     *   Function that display the details of a specific competence
     */
     function showCompetence(id) {
-        console.log("showCompetence: " + id);
+
+        if (id != null) {
+        console.log("showDomaine: " + id);
 
         axios({
             method: "GET",
-            "url": "/competencesSpe_" + id + ".json"
+            "url": "/domaines_" + id + ".json"
         }).then(result => {
             console.log("Retour du service, :result.data: " + result.data);
             myVariables.competence = result.data;
@@ -59,6 +61,7 @@
         }, error => {
             console.error(error);
         });
+        }
 
     }
 
