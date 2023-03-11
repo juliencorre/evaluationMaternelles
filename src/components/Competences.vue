@@ -6,7 +6,7 @@
     import ChampDetail from "./ChampDetail.vue";
     import CompetenceDetail from "./CompetenceDetail.vue";
     import CompetenceSpeDetail from "./CompetenceSpeDetail.vue";
-  
+    import ChampCreate from "./ChampCreate.vue";
 
     import {
       onMounted,
@@ -33,6 +33,7 @@
         displayChampDetail: false,
         displayCompetenceDetail: false,
         displayCompetenceSpeDetail: false,
+        displayChampCreate: false
         
     });
 
@@ -94,6 +95,7 @@
         elementsActifs.displayChampDetail= false
         elementsActifs.displayCompetenceDetail= false
         elementsActifs.displayCompetenceSpeDetail = false
+        elementsActifs.displayChampCreate = false
 
         elementsActifs.domaineId = id
     }
@@ -105,6 +107,7 @@
         elementsActifs.displayChampDetail = true
         elementsActifs.displayCompetenceDetail = false
         elementsActifs.displayCompetenceSpeDetail = false
+        elementsActifs.displayChampCreate = false
         elementsActifs.champId = id
     }
 
@@ -115,6 +118,7 @@
         elementsActifs.displayChampDetail = false
         elementsActifs.displayCompetenceDetail = true
         elementsActifs.displayCompetenceSpeDetail = false
+        elementsActifs.displayChampCreate = false
         elementsActifs.comptetenceId = id
     }
 
@@ -126,7 +130,36 @@
         elementsActifs.displayChampDetail = false
         elementsActifs.displayCompetenceDetail = false
         elementsActifs.displayCompetenceSpeDetail = true
+        elementsActifs.displayChampCreate = false
         elementsActifs.competenceSpeId = id
+
+    }
+
+    function showChampCreate() {
+
+        elementsActifs.displayDomaineDetail = false
+        elementsActifs.displayChampDetail = false
+        elementsActifs.displayCompetenceDetail = false
+        elementsActifs.displayCompetenceSpeDetail = false
+        elementsActifs.displayChampCreate = true
+
+
+    }
+
+
+    function ajouterChamp() {
+        console.log("ajouterChamp")
+        showChampCreate()
+    }
+
+    // reception d'un evenement indiquant qu'un champ a été créé
+    function newChampCreated(newChamp) {
+        console.log("creation d'un champ pour le domaine:" + elementsActifs.domaineId + " : " + newChamp);
+
+        // on rafraichi le menu
+        getCompetences()
+        // on affiche le nouveau champ
+        showChampDetail(newChamp.id)
 
     }
 
@@ -145,9 +178,9 @@
       <h1 class="h2">Compétences</h1>
       <div class="btn-toolbar mb-2 mb-md-0">
 
-        <button type="button" class="btn btn-sm btn-outline-primary " v-on:click="showAjouterDomaines">
+        <button type="button" class="btn btn-sm btn-primary " v-on:click="showAjouterDomaines">
           <span data-feather="calendar" class="align-text-bottom"></span>
-          Nouvelle compétence
+          Nouveau domaine
         </button>
       </div>
     </div>
@@ -205,10 +238,11 @@
       </div>
 
       <div class="col detailRight">
-          <DomaineDetail :class="[elementsActifs.displayDomaineDetail == true ? 'd-block' : 'd-none']" :id="`${elementsActifs.domaineId}`" />
+          <DomaineDetail :class="[elementsActifs.displayDomaineDetail == true ? 'd-block' : 'd-none']" :id="`${elementsActifs.domaineId}`" @ajouter-champ="ajouterChamp" />
           <ChampDetail :class="[elementsActifs.displayChampDetail == true ? 'd-block' : 'd-none']" :id="`${elementsActifs.champId}`" />
           <CompetenceDetail :class="[elementsActifs.displayCompetenceDetail == true ? 'd-block' : 'd-none']" :id="`${elementsActifs.comptetenceId}`" />
           <CompetenceSpeDetail :class="[elementsActifs.displayCompetenceSpeDetail == true ? 'd-block' : 'd-none']" :id="`${elementsActifs.competenceSpeId}`" />
+          <ChampCreate :class="[elementsActifs.displayChampCreate == true ? 'd-block' : 'd-none']" @new-champ="newChampCreated" :id="`${elementsActifs.domaineId}`"/>
 
 
       </div>
