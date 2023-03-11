@@ -62,10 +62,10 @@
      * Récupérer les compétences
      */
     function getCompetences() {
-
       axios({
-        method: "GET",
-        "url": "/competences.json"
+          method: "GET",
+        "url": "http://localhost:3000/competences"
+        //"url": "/competences.json"
         //"url": "http://localhost:5173/competences.json"
         //"url": "http://127.0.0.1:8000/api/eleves"
 
@@ -142,7 +142,6 @@
         elementsActifs.displayCompetenceDetail = false
         elementsActifs.displayCompetenceSpeDetail = false
         elementsActifs.displayChampCreate = true
-
 
     }
 

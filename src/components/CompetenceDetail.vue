@@ -53,7 +53,8 @@
 
         axios({
             method: "GET",
-            "url": "/competences_" + id + ".json"
+            "url": "http://localhost:3000/competences/competences/" + id
+            //"url": "/competences_" + id + ".json"
         }).then(result => {
             console.log("Retour du service, :result.data: " + result.data);
             myVariables.competence = result.data;

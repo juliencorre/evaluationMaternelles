@@ -25,7 +25,7 @@
     });
 
     const newChamp = reactive({
-        id:1,
+       // id:1,
         nom: null,
         description: null
     });
@@ -36,14 +36,16 @@
     *   Function that display the details of a specific competence
     */
     function addChamp() {
-
-        emitNewChamp('newChamp', newChamp)
-        /*axios
-            .post('domaines/'+myProps.id+'/champs', newChamp)
-            .then((result) => {
-                console.log("Retour du service, :result.data: " + result.data)
-            })
-            */
+  
+        //.post("http://localhost:3000/competences/domaines/"+myProps.id+"/champs", newChamp)
+        axios
+            .post("http://localhost:3000/competences/domaines/1/champs", newChamp)
+             .then((result) => {
+                    console.log("Retour du service, :result.data: " + result.data)
+                    emitNewChamp('newChamp', result.data)
+             })
+            
+            
 
     }
 

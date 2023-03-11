@@ -1,0 +1,1066 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="fa80b48d-81f8-4019-8b07-723b4cb80513" activeEnvironment="Default" name="Evaluation" resourceRoot="" soapui-version="5.7.0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings/>
+  <con:interface xsi:type="con:RestService" id="e3a80cea-01f7-4c85-b872-c851895c6d13" wadlVersion="http://wadl.dev.java.net/2009/02" name="http://localhost:3000" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <con:settings/>
+    <con:definitionCache type="TEXT" rootPart=""/>
+    <con:endpoints>
+      <con:endpoint>http://Gamer-1:3000/</con:endpoint>
+      <con:endpoint>http://Gamer-1:8080/</con:endpoint>
+      <con:endpoint>http://localhost:3000</con:endpoint>
+    </con:endpoints>
+    <con:resource name="competences" path="/competences" id="a0870ee0-6fae-459c-99ea-404f5e5fd038">
+      <con:settings/>
+      <con:parameters/>
+      <con:method name="Competences 1" id="e219cc13-e0be-44e4-8c92-5099d201b3ef" method="GET">
+        <con:settings/>
+        <con:parameters/>
+        <con:request name="Request 1" id="207403ca-3e17-41fd-8f26-9499c86761ee" mediaType="application/json">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Access-Control-Allow-Origin" value="*" xmlns="http://eviware.com/soapui/config"/></con:setting>
+          </con:settings>
+          <con:endpoint>http://localhost:3000</con:endpoint>
+          <con:request/>
+          <con:credentials>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:jmsPropertyConfig/>
+          <con:parameters/>
+        </con:request>
+      </con:method>
+    </con:resource>
+    <con:resource name="competences/domaines" path="/competences/domaines/{id}" id="79c8a756-3416-46b2-a3d4-1a7bae87c6dd">
+      <con:settings/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>id</con:name>
+          <con:value>1</con:value>
+          <con:style>TEMPLATE</con:style>
+          <con:default>1</con:default>
+        </con:parameter>
+      </con:parameters>
+      <con:method name="Method 1" id="71387fd6-c0d7-4380-9d5d-4e5846deb841" method="GET">
+        <con:settings/>
+        <con:parameters/>
+        <con:request name="Request 1" id="a2f2fc34-1ec3-4b22-bc9c-a68c70395407" mediaType="application/json">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Access-Control-Allow-Origin" value="*" xmlns="http://eviware.com/soapui/config"/></con:setting>
+          </con:settings>
+          <con:endpoint>http://Gamer-1:8080/</con:endpoint>
+          <con:request/>
+          <con:credentials>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:jmsPropertyConfig/>
+          <con:parameters>
+            <entry key="id" value="2" xmlns="http://eviware.com/soapui/config"/>
+          </con:parameters>
+          <con:parameterOrder>
+            <con:entry>id</con:entry>
+          </con:parameterOrder>
+        </con:request>
+      </con:method>
+    </con:resource>
+    <con:resource name="competences/champs" path="/competences/champs/{id}" id="ed551327-6d05-4972-b298-b11a0b4a43dc">
+      <con:settings/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>id</con:name>
+          <con:value/>
+          <con:style>TEMPLATE</con:style>
+          <con:default/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+      </con:parameters>
+      <con:method name="Method 1" id="8a22c607-ad31-4caf-9dad-e84335e41867" method="GET">
+        <con:settings/>
+        <con:parameters/>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/json</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:element xmlns:ns="http://Gamer-1/competences/champs/10">ns:Response</con:element>
+        </con:representation>
+        <con:request name="Request 1" id="be5d6c6c-ed41-4bb8-96c6-2cca6e6cede9" mediaType="application/json">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Access-Control-Allow-Origin" value="*" xmlns="http://eviware.com/soapui/config"/></con:setting>
+          </con:settings>
+          <con:endpoint>http://Gamer-1:3000/</con:endpoint>
+          <con:request/>
+          <con:originalUri>http://Gamer-1/competences/champs/10</con:originalUri>
+          <con:credentials>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:jmsPropertyConfig/>
+          <con:parameters>
+            <entry key="id" value="10" xmlns="http://eviware.com/soapui/config"/>
+          </con:parameters>
+          <con:parameterOrder>
+            <con:entry>id</con:entry>
+          </con:parameterOrder>
+        </con:request>
+      </con:method>
+    </con:resource>
+    <con:resource name="competences/competences" path="/competences/competences/{id}" id="cb3892e5-060e-46a0-8594-c7e00c81f337">
+      <con:settings/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>id</con:name>
+          <con:value/>
+          <con:style>TEMPLATE</con:style>
+          <con:default/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+      </con:parameters>
+      <con:method name="Method 1" id="436fe110-4f5b-4532-af77-2b8a3c63c8b2" method="GET">
+        <con:settings/>
+        <con:parameters/>
+        <con:request name="Request 1" id="982d4216-ae09-477f-859c-108a57665357" mediaType="application/json">
+          <con:settings/>
+          <con:endpoint>http://Gamer-1:3000/</con:endpoint>
+          <con:request/>
+          <con:credentials>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:jmsPropertyConfig/>
+          <con:parameters>
+            <entry key="id" value="2" xmlns="http://eviware.com/soapui/config"/>
+          </con:parameters>
+          <con:parameterOrder>
+            <con:entry>id</con:entry>
+          </con:parameterOrder>
+        </con:request>
+      </con:method>
+    </con:resource>
+    <con:resource name="competences_spe" path="/competences/competences_spe/{id}" id="79850084-ed17-45e4-9559-175b35cbeeb6">
+      <con:settings/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>id</con:name>
+          <con:value/>
+          <con:style>TEMPLATE</con:style>
+          <con:default/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+      </con:parameters>
+      <con:method name="Method 1" id="334f2f27-885a-4d28-b85c-7e1ad8b38b6f" method="GET">
+        <con:settings/>
+        <con:parameters/>
+        <con:request name="Request 1" id="d36aa5cd-78f8-47ce-8e72-246323e3d353" mediaType="application/json">
+          <con:settings/>
+          <con:endpoint>http://Gamer-1:3000/</con:endpoint>
+          <con:request/>
+          <con:credentials>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:jmsPropertyConfig/>
+          <con:parameters>
+            <entry key="id" value="2" xmlns="http://eviware.com/soapui/config"/>
+          </con:parameters>
+          <con:parameterOrder>
+            <con:entry>id</con:entry>
+          </con:parameterOrder>
+        </con:request>
+      </con:method>
+    </con:resource>
+    <con:resource name="champs" path="/competences/domaines/{idDomaine}/champs" id="6a75fd1b-37aa-4469-ba24-c5d6f1b52858">
+      <con:settings/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>idDomaine</con:name>
+          <con:value>idDomaine</con:value>
+          <con:style>TEMPLATE</con:style>
+          <con:default>idDomaine</con:default>
+        </con:parameter>
+      </con:parameters>
+      <con:method name="Method 1" id="2391a3c6-5e89-4480-83e9-0a8bd1a7c953" method="POST">
+        <con:settings/>
+        <con:parameters/>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/json</con:mediaType>
+          <con:status>201</con:status>
+          <con:params/>
+          <con:element xmlns:cham="http://Gamer-1/competences/domaines/1/champs">cham:Response</con:element>
+        </con:representation>
+        <con:representation type="REQUEST">
+          <con:mediaType>application/json</con:mediaType>
+          <con:params/>
+        </con:representation>
+        <con:request name="Request 1" id="db875df3-e6ab-4cb9-baca-43e5dd462c02" mediaType="application/json" postQueryString="false">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Access-Control-Allow-Origin" value="*" xmlns="http://eviware.com/soapui/config"/></con:setting>
+          </con:settings>
+          <con:endpoint>http://Gamer-1:3000/</con:endpoint>
+          <con:request>{
+  "nom": "Champ_10",
+  "description": "description_10"
+}</con:request>
+          <con:originalUri>http://Gamer-1/competences/domaines/1/champs</con:originalUri>
+          <con:credentials>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:jmsPropertyConfig/>
+          <con:parameters>
+            <entry key="idDomaine" value="1" xmlns="http://eviware.com/soapui/config"/>
+          </con:parameters>
+        </con:request>
+      </con:method>
+    </con:resource>
+  </con:interface>
+  <con:restMockService id="4f4a21ce-ea01-4a14-a3b2-587dd7956b13" port="3000" path="/" host="Gamer-1" name="competences" docroot="">
+    <con:settings/>
+    <con:properties/>
+    <con:onRequestScript>mockRequest.httpResponse.addHeader( "Access-Control-Allow-Origin", "*" )
+mockRequest.httpResponse.addHeader( "Access-Control-Allow-Headers", "*" )</con:onRequestScript>
+    <con:restMockAction name="/competences" method="GET" resourcePath="/competences" id="e4b7990a-feda-441e-a1cc-e84ea6f4d277">
+      <con:settings/>
+      <con:defaultResponse xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+      <con:dispatchStyle>SEQUENCE</con:dispatchStyle>
+      <con:dispatchPath>/*
+// Script dispatcher is used to select a response based on the incoming request.
+// Here are few examples showing how to match based on path, query param, header and body
+
+// Match based on path
+def requestPath = mockRequest.getPath()
+log.info "Path: "+ requestPath
+
+if( requestPath.contains("json") )
+{
+    // return the name of the response you want to dispatch
+    return "JSON Response"
+}
+
+
+// Match based on query parameter
+def queryString = mockRequest.getRequest().getQueryString()
+log.info "QueryString: " + queryString
+
+if( queryString.contains("stockholm") )
+{
+    // return the name of the response you want to dispatch
+    return "Response Stockholm"
+}
+else if( queryString.contains("london") )
+{
+    // return the name of the response you want to dispatch
+    return "Response London"
+}
+
+
+// Match based on header
+def acceptEncodingHeaderList = mockRequest.getRequestHeaders().get("Accept-Encoding")
+log.info "AcceptEncoding Header List: " + acceptEncodingHeaderList
+
+if( acceptEncodingHeaderList.contains("gzip,deflate") )
+{
+    // return the name of the response you want to dispatch
+    return "GZiped Response"
+}
+
+
+// Match based on body
+def requestBody = mockRequest.getRequestContent()
+log.info "Request body: " + requestBody
+
+if( requestBody.contains("some data") )
+{
+    // return the name of the response you want to dispatch
+    return "Response N"
+}
+*/</con:dispatchPath>
+      <con:response name="Response 1" id="3a0ba60f-b975-405b-ad3a-9a949e9b8a91" httpResponseStatus="200" mediaType="application/json">
+        <con:settings/>
+        <con:responseContent>{
+  "domaines": [
+    {
+      "id": 1,
+      "nom": "domaine_1",
+      "description": "description_1",
+      "champs": [
+        {
+          "id": 1,
+          "nom": "champ_1",
+          "description": "description_1",
+          "competences": [
+            {
+              "id": 1,
+              "nom": "competence_1",
+              "description": "description_1",
+              "competences_spe": [
+                {
+                  "id": 1,
+                "nom" : "competence_spe_1",
+                "description": "description_1"
+                },
+                {
+                  "id": 2,
+                  "nom" : "competence_spe_2",
+                  "description": "description_2"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "nom": "compétences transversales",
+      "description": "description_2",
+      "champs": [
+        {
+          "id": 2,
+          "nom": "compétences transversales",
+          "description": "description_1",
+          "competences": [
+            {
+              "id": 2,
+              "nom": "Est-ce qu’il se repère dans la classe ?",
+              "description": "description_1",
+              "competences_spe": [
+                {
+                  "id": 3,
+                  "nom" : "intervient à bon escient",
+                  "description": "description_1"
+                },
+                {
+                  "id": 4,
+                  "nom" : "competence_spe_2",
+                  "description": "description_2"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}</con:responseContent>
+      </con:response>
+    </con:restMockAction>
+    <con:restMockAction name="/competences/domaines/1" method="GET" resourcePath="/competences/domaines/1" id="e22df28b-be72-45bb-9629-f87b503fa449">
+      <con:settings/>
+      <con:dispatchStyle>SEQUENCE</con:dispatchStyle>
+      <con:dispatchPath>/*
+// Script dispatcher is used to select a response based on the incoming request.
+// Here are few examples showing how to match based on path, query param, header and body
+
+// Match based on path
+def requestPath = mockRequest.getPath()
+log.info "Path: "+ requestPath
+
+if( requestPath.contains("json") )
+{
+    // return the name of the response you want to dispatch
+    return "JSON Response"
+}
+
+
+// Match based on query parameter
+def queryString = mockRequest.getRequest().getQueryString()
+log.info "QueryString: " + queryString
+
+if( queryString.contains("stockholm") )
+{
+    // return the name of the response you want to dispatch
+    return "Response Stockholm"
+}
+else if( queryString.contains("london") )
+{
+    // return the name of the response you want to dispatch
+    return "Response London"
+}
+
+
+// Match based on header
+def acceptEncodingHeaderList = mockRequest.getRequestHeaders().get("Accept-Encoding")
+log.info "AcceptEncoding Header List: " + acceptEncodingHeaderList
+
+if( acceptEncodingHeaderList.contains("gzip,deflate") )
+{
+    // return the name of the response you want to dispatch
+    return "GZiped Response"
+}
+
+
+// Match based on body
+def requestBody = mockRequest.getRequestContent()
+log.info "Request body: " + requestBody
+
+if( requestBody.contains("some data") )
+{
+    // return the name of the response you want to dispatch
+    return "Response N"
+}
+*/</con:dispatchPath>
+      <con:response name="Response 1" id="d7808ba4-dac5-4bd7-a396-86a6e173c31c" httpResponseStatus="200" mediaType="application/json">
+        <con:settings/>
+        <con:responseContent>{
+  "id": 1,
+  "nom": "Domaine_1",
+  "description": "description_1"
+}</con:responseContent>
+      </con:response>
+    </con:restMockAction>
+    <con:restMockAction name="/competences/domaines/2" method="GET" resourcePath="/competences/domaines/2" id="3e01a0b4-0990-49b1-9040-b529764d69a3">
+      <con:settings/>
+      <con:dispatchStyle>SEQUENCE</con:dispatchStyle>
+      <con:dispatchPath>/*
+// Script dispatcher is used to select a response based on the incoming request.
+// Here are few examples showing how to match based on path, query param, header and body
+
+// Match based on path
+def requestPath = mockRequest.getPath()
+log.info "Path: "+ requestPath
+
+if( requestPath.contains("json") )
+{
+    // return the name of the response you want to dispatch
+    return "JSON Response"
+}
+
+
+// Match based on query parameter
+def queryString = mockRequest.getRequest().getQueryString()
+log.info "QueryString: " + queryString
+
+if( queryString.contains("stockholm") )
+{
+    // return the name of the response you want to dispatch
+    return "Response Stockholm"
+}
+else if( queryString.contains("london") )
+{
+    // return the name of the response you want to dispatch
+    return "Response London"
+}
+
+
+// Match based on header
+def acceptEncodingHeaderList = mockRequest.getRequestHeaders().get("Accept-Encoding")
+log.info "AcceptEncoding Header List: " + acceptEncodingHeaderList
+
+if( acceptEncodingHeaderList.contains("gzip,deflate") )
+{
+    // return the name of the response you want to dispatch
+    return "GZiped Response"
+}
+
+
+// Match based on body
+def requestBody = mockRequest.getRequestContent()
+log.info "Request body: " + requestBody
+
+if( requestBody.contains("some data") )
+{
+    // return the name of the response you want to dispatch
+    return "Response N"
+}
+*/</con:dispatchPath>
+      <con:response name="Response 1" id="60cb681c-012b-46cd-989e-805b2d42b0fe" httpResponseStatus="200" mediaType="application/json">
+        <con:settings/>
+        <con:responseContent>{
+  "id": 2,
+  "nom": "Domaine_2",
+  "description": "description_2"
+}</con:responseContent>
+      </con:response>
+    </con:restMockAction>
+    <con:restMockAction name="/competences/champs/1" method="GET" resourcePath="/competences/champs/1" id="c87a1532-4210-4f79-a5b4-382b70aaff8c">
+      <con:settings/>
+      <con:dispatchStyle>SEQUENCE</con:dispatchStyle>
+      <con:dispatchPath>/*
+// Script dispatcher is used to select a response based on the incoming request.
+// Here are few examples showing how to match based on path, query param, header and body
+
+// Match based on path
+def requestPath = mockRequest.getPath()
+log.info "Path: "+ requestPath
+
+if( requestPath.contains("json") )
+{
+    // return the name of the response you want to dispatch
+    return "JSON Response"
+}
+
+
+// Match based on query parameter
+def queryString = mockRequest.getRequest().getQueryString()
+log.info "QueryString: " + queryString
+
+if( queryString.contains("stockholm") )
+{
+    // return the name of the response you want to dispatch
+    return "Response Stockholm"
+}
+else if( queryString.contains("london") )
+{
+    // return the name of the response you want to dispatch
+    return "Response London"
+}
+
+
+// Match based on header
+def acceptEncodingHeaderList = mockRequest.getRequestHeaders().get("Accept-Encoding")
+log.info "AcceptEncoding Header List: " + acceptEncodingHeaderList
+
+if( acceptEncodingHeaderList.contains("gzip,deflate") )
+{
+    // return the name of the response you want to dispatch
+    return "GZiped Response"
+}
+
+
+// Match based on body
+def requestBody = mockRequest.getRequestContent()
+log.info "Request body: " + requestBody
+
+if( requestBody.contains("some data") )
+{
+    // return the name of the response you want to dispatch
+    return "Response N"
+}
+*/</con:dispatchPath>
+      <con:response name="Response 1" id="45ad6eb3-9b25-4c69-a7bd-aa798ee49f0a" httpResponseStatus="200" mediaType="application/json">
+        <con:settings/>
+        <con:responseContent>{
+  "id": 1,
+  "nom": "Champ_1",
+  "description": "description_1"
+}</con:responseContent>
+      </con:response>
+    </con:restMockAction>
+    <con:restMockAction name="/competences/champs/2" method="GET" resourcePath="/competences/champs/2" id="cb68750f-df5c-456f-8cb1-6d89c684a8c8">
+      <con:settings/>
+      <con:dispatchStyle>SEQUENCE</con:dispatchStyle>
+      <con:dispatchPath>/*
+// Script dispatcher is used to select a response based on the incoming request.
+// Here are few examples showing how to match based on path, query param, header and body
+
+// Match based on path
+def requestPath = mockRequest.getPath()
+log.info "Path: "+ requestPath
+
+if( requestPath.contains("json") )
+{
+    // return the name of the response you want to dispatch
+    return "JSON Response"
+}
+
+
+// Match based on query parameter
+def queryString = mockRequest.getRequest().getQueryString()
+log.info "QueryString: " + queryString
+
+if( queryString.contains("stockholm") )
+{
+    // return the name of the response you want to dispatch
+    return "Response Stockholm"
+}
+else if( queryString.contains("london") )
+{
+    // return the name of the response you want to dispatch
+    return "Response London"
+}
+
+
+// Match based on header
+def acceptEncodingHeaderList = mockRequest.getRequestHeaders().get("Accept-Encoding")
+log.info "AcceptEncoding Header List: " + acceptEncodingHeaderList
+
+if( acceptEncodingHeaderList.contains("gzip,deflate") )
+{
+    // return the name of the response you want to dispatch
+    return "GZiped Response"
+}
+
+
+// Match based on body
+def requestBody = mockRequest.getRequestContent()
+log.info "Request body: " + requestBody
+
+if( requestBody.contains("some data") )
+{
+    // return the name of the response you want to dispatch
+    return "Response N"
+}
+*/</con:dispatchPath>
+      <con:response name="Response 1" id="5d5894dc-bbb8-4f12-ae80-f52fbf657f2f" httpResponseStatus="200" mediaType="application/json">
+        <con:settings/>
+        <con:responseContent>{
+  "id": 2,
+  "nom": "Champ_2",
+  "description": "description_2"
+}</con:responseContent>
+      </con:response>
+    </con:restMockAction>
+    <con:restMockAction name="/competences/competences/1" method="GET" resourcePath="/competences/competences/1" id="6082831f-df1b-42ef-985b-a968625cb1ed">
+      <con:settings/>
+      <con:dispatchStyle>SEQUENCE</con:dispatchStyle>
+      <con:dispatchPath>/*
+// Script dispatcher is used to select a response based on the incoming request.
+// Here are few examples showing how to match based on path, query param, header and body
+
+// Match based on path
+def requestPath = mockRequest.getPath()
+log.info "Path: "+ requestPath
+
+if( requestPath.contains("json") )
+{
+    // return the name of the response you want to dispatch
+    return "JSON Response"
+}
+
+
+// Match based on query parameter
+def queryString = mockRequest.getRequest().getQueryString()
+log.info "QueryString: " + queryString
+
+if( queryString.contains("stockholm") )
+{
+    // return the name of the response you want to dispatch
+    return "Response Stockholm"
+}
+else if( queryString.contains("london") )
+{
+    // return the name of the response you want to dispatch
+    return "Response London"
+}
+
+
+// Match based on header
+def acceptEncodingHeaderList = mockRequest.getRequestHeaders().get("Accept-Encoding")
+log.info "AcceptEncoding Header List: " + acceptEncodingHeaderList
+
+if( acceptEncodingHeaderList.contains("gzip,deflate") )
+{
+    // return the name of the response you want to dispatch
+    return "GZiped Response"
+}
+
+
+// Match based on body
+def requestBody = mockRequest.getRequestContent()
+log.info "Request body: " + requestBody
+
+if( requestBody.contains("some data") )
+{
+    // return the name of the response you want to dispatch
+    return "Response N"
+}
+*/</con:dispatchPath>
+      <con:response name="Response 1" id="eeaca840-1be7-4fcb-98dd-c884889df64d" httpResponseStatus="200" mediaType="application/json">
+        <con:settings/>
+        <con:responseContent>{
+  "id": 1,
+  "nom": "Competence_1",
+  "description": "description_1"
+}</con:responseContent>
+      </con:response>
+    </con:restMockAction>
+    <con:restMockAction name="/competences/competences/2" method="GET" resourcePath="/competences/competences/2" id="aa2f1c30-4ddd-4591-97f1-5354e2cc5dd8">
+      <con:settings/>
+      <con:dispatchStyle>SEQUENCE</con:dispatchStyle>
+      <con:dispatchPath>/*
+// Script dispatcher is used to select a response based on the incoming request.
+// Here are few examples showing how to match based on path, query param, header and body
+
+// Match based on path
+def requestPath = mockRequest.getPath()
+log.info "Path: "+ requestPath
+
+if( requestPath.contains("json") )
+{
+    // return the name of the response you want to dispatch
+    return "JSON Response"
+}
+
+
+// Match based on query parameter
+def queryString = mockRequest.getRequest().getQueryString()
+log.info "QueryString: " + queryString
+
+if( queryString.contains("stockholm") )
+{
+    // return the name of the response you want to dispatch
+    return "Response Stockholm"
+}
+else if( queryString.contains("london") )
+{
+    // return the name of the response you want to dispatch
+    return "Response London"
+}
+
+
+// Match based on header
+def acceptEncodingHeaderList = mockRequest.getRequestHeaders().get("Accept-Encoding")
+log.info "AcceptEncoding Header List: " + acceptEncodingHeaderList
+
+if( acceptEncodingHeaderList.contains("gzip,deflate") )
+{
+    // return the name of the response you want to dispatch
+    return "GZiped Response"
+}
+
+
+// Match based on body
+def requestBody = mockRequest.getRequestContent()
+log.info "Request body: " + requestBody
+
+if( requestBody.contains("some data") )
+{
+    // return the name of the response you want to dispatch
+    return "Response N"
+}
+*/</con:dispatchPath>
+      <con:response name="Response 1" id="c3208885-f2bb-4c49-a77b-74c3272e518d" httpResponseStatus="200" mediaType="application/json">
+        <con:settings/>
+        <con:responseContent>{
+  "id": 2,
+  "nom": "Competence_2",
+  "description": "description_2"
+}</con:responseContent>
+      </con:response>
+    </con:restMockAction>
+    <con:restMockAction name="/competences/competences_spe/1" method="GET" resourcePath="/competences/competences_spe/1" id="d5fc8fd8-ea26-4cd9-ad85-0267e31f778d">
+      <con:settings/>
+      <con:dispatchStyle>SEQUENCE</con:dispatchStyle>
+      <con:dispatchPath>/*
+// Script dispatcher is used to select a response based on the incoming request.
+// Here are few examples showing how to match based on path, query param, header and body
+
+// Match based on path
+def requestPath = mockRequest.getPath()
+log.info "Path: "+ requestPath
+
+if( requestPath.contains("json") )
+{
+    // return the name of the response you want to dispatch
+    return "JSON Response"
+}
+
+
+// Match based on query parameter
+def queryString = mockRequest.getRequest().getQueryString()
+log.info "QueryString: " + queryString
+
+if( queryString.contains("stockholm") )
+{
+    // return the name of the response you want to dispatch
+    return "Response Stockholm"
+}
+else if( queryString.contains("london") )
+{
+    // return the name of the response you want to dispatch
+    return "Response London"
+}
+
+
+// Match based on header
+def acceptEncodingHeaderList = mockRequest.getRequestHeaders().get("Accept-Encoding")
+log.info "AcceptEncoding Header List: " + acceptEncodingHeaderList
+
+if( acceptEncodingHeaderList.contains("gzip,deflate") )
+{
+    // return the name of the response you want to dispatch
+    return "GZiped Response"
+}
+
+
+// Match based on body
+def requestBody = mockRequest.getRequestContent()
+log.info "Request body: " + requestBody
+
+if( requestBody.contains("some data") )
+{
+    // return the name of the response you want to dispatch
+    return "Response N"
+}
+*/</con:dispatchPath>
+      <con:response name="Response 1" id="ea014486-1d42-4e69-a6b4-475339c2ff92" httpResponseStatus="200" mediaType="application/json">
+        <con:settings/>
+        <con:responseContent>{
+      "id": 1,
+      "nom": "competence_spe_1",
+      "description": "description_1"
+}</con:responseContent>
+      </con:response>
+    </con:restMockAction>
+    <con:restMockAction name="/competences/competences_spe/2" method="GET" resourcePath="/competences/competences_spe/2" id="e0d35ab5-d173-424f-88a9-fd86852e6350">
+      <con:settings/>
+      <con:dispatchStyle>SEQUENCE</con:dispatchStyle>
+      <con:dispatchPath>/*
+// Script dispatcher is used to select a response based on the incoming request.
+// Here are few examples showing how to match based on path, query param, header and body
+
+// Match based on path
+def requestPath = mockRequest.getPath()
+log.info "Path: "+ requestPath
+
+if( requestPath.contains("json") )
+{
+    // return the name of the response you want to dispatch
+    return "JSON Response"
+}
+
+
+// Match based on query parameter
+def queryString = mockRequest.getRequest().getQueryString()
+log.info "QueryString: " + queryString
+
+if( queryString.contains("stockholm") )
+{
+    // return the name of the response you want to dispatch
+    return "Response Stockholm"
+}
+else if( queryString.contains("london") )
+{
+    // return the name of the response you want to dispatch
+    return "Response London"
+}
+
+
+// Match based on header
+def acceptEncodingHeaderList = mockRequest.getRequestHeaders().get("Accept-Encoding")
+log.info "AcceptEncoding Header List: " + acceptEncodingHeaderList
+
+if( acceptEncodingHeaderList.contains("gzip,deflate") )
+{
+    // return the name of the response you want to dispatch
+    return "GZiped Response"
+}
+
+
+// Match based on body
+def requestBody = mockRequest.getRequestContent()
+log.info "Request body: " + requestBody
+
+if( requestBody.contains("some data") )
+{
+    // return the name of the response you want to dispatch
+    return "Response N"
+}
+*/</con:dispatchPath>
+      <con:response name="Response 1" id="0a704383-1b91-48ad-a084-dd9d631d1fc5" httpResponseStatus="200" mediaType="application/json">
+        <con:settings/>
+        <con:responseContent>{
+      "id": 1,
+      "nom": "competence_spe_1",
+      "description": "description_1"
+}</con:responseContent>
+      </con:response>
+    </con:restMockAction>
+    <con:restMockAction name="CORS" method="OPTIONS" resourcePath="/" id="6b0ae7aa-dc42-4a1a-aeb8-54b88cd73471">
+      <con:settings/>
+      <con:defaultResponse xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+      <con:dispatchStyle>SEQUENCE</con:dispatchStyle>
+      <con:dispatchPath>/*
+// Script dispatcher is used to select a response based on the incoming request.
+// Here are few examples showing how to match based on path, query param, header and body
+
+// Match based on path
+def requestPath = mockRequest.getPath()
+log.info "Path: "+ requestPath
+
+if( requestPath.contains("json") )
+{
+    // return the name of the response you want to dispatch
+    return "JSON Response"
+}
+
+
+// Match based on query parameter
+def queryString = mockRequest.getRequest().getQueryString()
+log.info "QueryString: " + queryString
+
+if( queryString.contains("stockholm") )
+{
+    // return the name of the response you want to dispatch
+    return "Response Stockholm"
+}
+else if( queryString.contains("london") )
+{
+    // return the name of the response you want to dispatch
+    return "Response London"
+}
+
+
+// Match based on header
+def acceptEncodingHeaderList = mockRequest.getRequestHeaders().get("Accept-Encoding")
+log.info "AcceptEncoding Header List: " + acceptEncodingHeaderList
+
+if( acceptEncodingHeaderList.contains("gzip,deflate") )
+{
+    // return the name of the response you want to dispatch
+    return "GZiped Response"
+}
+
+
+// Match based on body
+def requestBody = mockRequest.getRequestContent()
+log.info "Request body: " + requestBody
+
+if( requestBody.contains("some data") )
+{
+    // return the name of the response you want to dispatch
+    return "Response N"
+}
+*/</con:dispatchPath>
+      <con:response name="Response 1" id="ddf92ca1-97f6-4d1b-ae9f-c237d55fff2d" httpResponseStatus="200" mediaType="application/json">
+        <con:settings/>
+        <con:responseContent/>
+        <con:header>
+          <con:name>Access-Control-Allow-Methods</con:name>
+          <con:value>POST,OPTIONS,HEAD,GET</con:value>
+        </con:header>
+      </con:response>
+    </con:restMockAction>
+    <con:restMockAction name="/competences/domaines/1/champs" method="POST" resourcePath="/competences/domaines/1/champs" id="87c9d1bf-b652-4c45-98ef-965d8197b14b">
+      <con:settings/>
+      <con:dispatchStyle>SEQUENCE</con:dispatchStyle>
+      <con:dispatchPath>/*
+// Script dispatcher is used to select a response based on the incoming request.
+// Here are few examples showing how to match based on path, query param, header and body
+
+// Match based on path
+def requestPath = mockRequest.getPath()
+log.info "Path: "+ requestPath
+
+if( requestPath.contains("json") )
+{
+    // return the name of the response you want to dispatch
+    return "JSON Response"
+}
+
+
+// Match based on query parameter
+def queryString = mockRequest.getRequest().getQueryString()
+log.info "QueryString: " + queryString
+
+if( queryString.contains("stockholm") )
+{
+    // return the name of the response you want to dispatch
+    return "Response Stockholm"
+}
+else if( queryString.contains("london") )
+{
+    // return the name of the response you want to dispatch
+    return "Response London"
+}
+
+
+// Match based on header
+def acceptEncodingHeaderList = mockRequest.getRequestHeaders().get("Accept-Encoding")
+log.info "AcceptEncoding Header List: " + acceptEncodingHeaderList
+
+if( acceptEncodingHeaderList.contains("gzip,deflate") )
+{
+    // return the name of the response you want to dispatch
+    return "GZiped Response"
+}
+
+
+// Match based on body
+def requestBody = mockRequest.getRequestContent()
+log.info "Request body: " + requestBody
+
+if( requestBody.contains("some data") )
+{
+    // return the name of the response you want to dispatch
+    return "Response N"
+}
+*/</con:dispatchPath>
+      <con:response name="Response 1" id="3c4e91ac-a688-44dd-be74-8451d6708dfa" httpResponseStatus="200" mediaType="application/json">
+        <con:settings/>
+        <con:responseContent>{
+  "id": 10,
+  "nom": "Champ_10",
+  "description": "description_10"
+}</con:responseContent>
+        <con:header>
+          <con:name>Server</con:name>
+          <con:value>Jetty(6.1.26)</con:value>
+        </con:header>
+      </con:response>
+    </con:restMockAction>
+    <con:restMockAction name="/competences/champs/10" method="GET" resourcePath="/competences/champs/10" id="fa15dab3-9b55-43c4-a3ae-527337bfe5fc">
+      <con:settings/>
+      <con:dispatchStyle>SEQUENCE</con:dispatchStyle>
+      <con:dispatchPath>/*
+// Script dispatcher is used to select a response based on the incoming request.
+// Here are few examples showing how to match based on path, query param, header and body
+
+// Match based on path
+def requestPath = mockRequest.getPath()
+log.info "Path: "+ requestPath
+
+if( requestPath.contains("json") )
+{
+    // return the name of the response you want to dispatch
+    return "JSON Response"
+}
+
+
+// Match based on query parameter
+def queryString = mockRequest.getRequest().getQueryString()
+log.info "QueryString: " + queryString
+
+if( queryString.contains("stockholm") )
+{
+    // return the name of the response you want to dispatch
+    return "Response Stockholm"
+}
+else if( queryString.contains("london") )
+{
+    // return the name of the response you want to dispatch
+    return "Response London"
+}
+
+
+// Match based on header
+def acceptEncodingHeaderList = mockRequest.getRequestHeaders().get("Accept-Encoding")
+log.info "AcceptEncoding Header List: " + acceptEncodingHeaderList
+
+if( acceptEncodingHeaderList.contains("gzip,deflate") )
+{
+    // return the name of the response you want to dispatch
+    return "GZiped Response"
+}
+
+
+// Match based on body
+def requestBody = mockRequest.getRequestContent()
+log.info "Request body: " + requestBody
+
+if( requestBody.contains("some data") )
+{
+    // return the name of the response you want to dispatch
+    return "Response N"
+}
+*/</con:dispatchPath>
+      <con:response name="Response 1" id="75472ccc-d940-4d46-b572-441358e6a050" httpResponseStatus="200" mediaType="application/json">
+        <con:settings/>
+        <con:responseContent>{
+  "id": 10,
+  "nom": "Champ_10",
+  "description": "description_10"
+}</con:responseContent>
+        <con:header>
+          <con:name>Server</con:name>
+          <con:value>Jetty(6.1.26)</con:value>
+        </con:header>
+      </con:response>
+    </con:restMockAction>
+  </con:restMockService>
+  <con:properties/>
+  <con:wssContainer/>
+  <con:oAuth2ProfileContainer/>
+  <con:oAuth1ProfileContainer/>
+  <con:sensitiveInformation/>
+</con:soapui-project>
