@@ -19,7 +19,7 @@
     });
 
     const competenceId = reactive({
-        competenceId: 1
+        competenceId: null
     });
 
     const variables = reactive({
@@ -111,7 +111,7 @@
     </div>
   <hr>
 
-  <div class="row">
+  <div class="row eval">
       <div class="col eval-menu">
 
             <ul class="list-unstyled ps-0">
@@ -195,99 +195,101 @@
     </div>
   </div>
 </template>
-<style scoped>
-.list-group {
-  --bs-list-group-border-radius: 0rem;
-}
-ul {
-  padding-left: 0.5rem;
-  padding-top: 0;
-  padding-bottom: 0;
-}
-li {
-  padding-right: 0;
-  padding-top: 0;
-  padding-bottom: 0;
-  border-left-width: 1;
-  border-right-width: 0;
-  border-top-width: 0;
-  border-bottom-width: 0;
-}
-/*
-.eval-selector:hover {
-  opacity: 0.7;
-  background-color: rgb(242, 242, 242);
-  cursor: pointer;
-}
-.eval-selector:hover>.bouton-selection {
-  display: block
-}
-*/
-.card {
-  border-radius: 1rem;
-  background-color: rgb(255, 255, 255);
-  margin-top:1rem;
-}
-.eval-menu{
-  margin-top:1rem;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  top: 130px;
-  width: 50%;
-}
 
-hr{
-  margin-bottom: 0;
-}
-.dropdown-toggle {
-  outline: 0;
-}
-.btn-toggle {
-  padding: .25rem .5rem;
-  font-weight: 600;
-  color: rgba(0, 0, 0, .65);
-  background-color: transparent;
-  padding: 0;
-}
-.btn-list {
-  padding: 0 1.25rem;
-}
- .btn-selector:hover,
- .btn-selector:hover {
-        color: rgba(0, 0, 0, .85);
-        background-color: #d2f4ea;
+<style scoped>
+    .list-group {
+      --bs-list-group-border-radius: 0rem;
     }
-.btn-toggle:hover,
-.btn-toggle:focus {
-  color: rgba(0, 0, 0, .85);
-  background-color: #d2f4ea;
-}
-.btn-toggle::before {
-  width: 1.25em;
-  line-height: 0;
-  content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%280,0,0,.5%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
-  transition: transform .35s ease;
-  transform-origin: .5em 50%;
-}
-.btn-toggle[aria-expanded="true"] {
-  color: rgba(0, 0, 0, .85);
-}
-.btn-toggle[aria-expanded="true"]::before {
-  transform: rotate(90deg);
-}
-.btn-toggle-nav a {
-  padding: .1875rem .5rem;
-  margin-top: .125rem;
-  margin-left: 1.25rem;
-}
-.btn-toggle-nav a:hover,
-.btn-toggle-nav a:focus {
-  background-color: #d2f4ea;
-}
-.scrollarea {
-  overflow-y: auto;
-}
+    ul {
+      padding-left: 0.5rem;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+    li {
+      padding-right: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+      border-left-width: 1;
+      border-right-width: 0;
+      border-top-width: 0;
+      border-bottom-width: 0;
+    }
+    /*
+    .eval-selector:hover {
+      opacity: 0.7;
+      background-color: rgb(242, 242, 242);
+      cursor: pointer;
+    }
+    .eval-selector:hover>.bouton-selection {
+      display: block
+    }
+    */
+    .card {
+      border-radius: 1rem;
+      background-color: rgb(255, 255, 255);
+      margin-top:1rem;
+    }
+
+    .eval-menu{
+      margin-top:1rem;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      top: 5rem;
+      width: 50%;
+    }
+
+    hr{
+      margin-bottom: 0;
+    }
+    .dropdown-toggle {
+      outline: 0;
+    }
+    .btn-toggle {
+      padding: .25rem .5rem;
+      font-weight: 600;
+      color: rgba(0, 0, 0, .65);
+      background-color: transparent;
+      padding: 0;
+    }
+    .btn-list {
+      padding: 0 1.25rem;
+    }
+     .btn-selector:hover,
+     .btn-selector:hover {
+            color: rgba(0, 0, 0, .85);
+            background-color: #d2f4ea;
+        }
+    .btn-toggle:hover,
+    .btn-toggle:focus {
+      color: rgba(0, 0, 0, .85);
+      background-color: #d2f4ea;
+    }
+    .btn-toggle::before {
+      width: 1.25em;
+      line-height: 0;
+      content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%280,0,0,.5%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
+      transition: transform .35s ease;
+      transform-origin: .5em 50%;
+    }
+    .btn-toggle[aria-expanded="true"] {
+      color: rgba(0, 0, 0, .85);
+    }
+    .btn-toggle[aria-expanded="true"]::before {
+      transform: rotate(90deg);
+    }
+    .btn-toggle-nav a {
+      padding: .1875rem .5rem;
+      margin-top: .125rem;
+      margin-left: 1.25rem;
+    }
+    .btn-toggle-nav a:hover,
+    .btn-toggle-nav a:focus {
+      background-color: #d2f4ea;
+    }
+    .scrollarea {
+      overflow-y: auto;
+    }
     /*
 .collapse {
   border: solid;
@@ -312,7 +314,7 @@ hr{
         border-color: #dbdada;
         position: absolute;
         right: 0;
-        top: 135px;
+        top: 5rem;
         bottom: 0;
         width: 50%;
         background-color: white;

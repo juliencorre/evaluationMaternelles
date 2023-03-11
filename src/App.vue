@@ -38,8 +38,8 @@ const currentView = computed(() => {
 
 <template>
   <header>
-  <nav class="navbar navbar-expand-lg  navbar-dark bg-dark">
-  <div class=" container-fluid">
+  <nav id="menuPrincipal" class="navbar navbar-expand-lg  navbar-dark bg-dark  ">
+  <div  class=" container-fluid">
     <a class="navbar-brand" href="#">Ma classe</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -56,40 +56,30 @@ const currentView = computed(() => {
 </nav>
 </header>
 
-<div class="main">
-
-    <!--ClasseEval /-->
-    <!--Resultats :height="50" /-->
+<div id="contenuPrincipal" >
 
     <component :is="currentView" />
 
 
 </div>
 
-<!--div class="row">
-  <header>
-    <img
-      alt="Vue logo"
-      class="logo"
-      src="./assets/logo.svg"
-      width="125"
-      height="125"
-    />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-
-
-  <main>
-    <TheWelcome />
-  </main>
-
-</div-->
 </template>
 
 <style>
- 
+    #menuPrincipal {
+        position: absolute;
+        top: 0rem;
+        left: 0rem;
+        right: 0rem;
+        height: 5rem;
+    }
+
+    #contenuPrincipal {
+        position: absolute;
+        top: 5rem;
+        left: 0rem;
+        right: 0rem;
+        bottom: 0rem;
+    }
+  
 </style>
