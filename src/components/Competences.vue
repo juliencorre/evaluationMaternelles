@@ -7,6 +7,10 @@
     import CompetenceDetail from "./CompetenceDetail.vue";
     import CompetenceSpeDetail from "./CompetenceSpeDetail.vue";
     import ChampCreate from "./ChampCreate.vue";
+    import DomaineCreate from "./DomaineCreate.vue";
+    import CompetenceCreate from "./CompetenceCreate.vue";
+    import CompetenceSpeCreate from "./CompetenceSpeCreate.vue";
+
 
     import {
       onMounted,
@@ -33,7 +37,10 @@
         displayChampDetail: false,
         displayCompetenceDetail: false,
         displayCompetenceSpeDetail: false,
-        displayChampCreate: false
+        displayChampCreate: false,
+        displayDomaineCreate: false,
+        displayCompetenceCreate: false,
+        displayCompetenceSpeCreate: false
         
     });
 
@@ -42,10 +49,16 @@
       modalToggle: null,
     });
 
+    const newChamp = reactive({
+      nom: null,
+      description: null,
+    });
+
     const newDomaine = reactive({
       nom: null,
       description: null,
     });
+
 
     function initialisation() {
 
@@ -85,7 +98,16 @@
      */
     function showAjouterDomaines() {
       console.log("showAjouterDomaine");
-      variables.myModal.show(variables.modalToggle);
+      //variables.myModal.show(variables.modalToggle);
+
+      elementsActifs.displayDomaineDetail= false
+        elementsActifs.displayChampDetail= false
+        elementsActifs.displayCompetenceDetail= false
+        elementsActifs.displayCompetenceSpeDetail = false
+        elementsActifs.displayChampCreate = false
+        elementsActifs.displayDomaineCreate = true
+        elementsActifs.displayCompetenceCreate = false
+        elementsActifs.displayCompetenceSpeCreate = false
 
     };
 
@@ -96,6 +118,9 @@
         elementsActifs.displayCompetenceDetail= false
         elementsActifs.displayCompetenceSpeDetail = false
         elementsActifs.displayChampCreate = false
+        elementsActifs.displayDomaineCreate = false
+        elementsActifs.displayCompetenceCreate = false
+        elementsActifs.displayCompetenceSpeCreate = false
 
         elementsActifs.domaineId = id
     }
@@ -108,6 +133,10 @@
         elementsActifs.displayCompetenceDetail = false
         elementsActifs.displayCompetenceSpeDetail = false
         elementsActifs.displayChampCreate = false
+        elementsActifs.displayDomaineCreate = false
+        elementsActifs.displayCompetenceCreate = false
+        elementsActifs.displayCompetenceSpeCreate = false
+
         elementsActifs.champId = id
     }
 
@@ -119,6 +148,10 @@
         elementsActifs.displayCompetenceDetail = true
         elementsActifs.displayCompetenceSpeDetail = false
         elementsActifs.displayChampCreate = false
+        elementsActifs.displayDomaineCreate = false
+        elementsActifs.displayCompetenceCreate = false
+        elementsActifs.displayCompetenceSpeCreate = false
+
         elementsActifs.comptetenceId = id
     }
 
@@ -131,6 +164,10 @@
         elementsActifs.displayCompetenceDetail = false
         elementsActifs.displayCompetenceSpeDetail = true
         elementsActifs.displayChampCreate = false
+        elementsActifs.displayDomaineCreate = false
+        elementsActifs.displayCompetenceCreate = false
+        elementsActifs.displayCompetenceSpeCreate = false
+
         elementsActifs.competenceSpeId = id
 
     }
@@ -142,6 +179,9 @@
         elementsActifs.displayCompetenceDetail = false
         elementsActifs.displayCompetenceSpeDetail = false
         elementsActifs.displayChampCreate = true
+        elementsActifs.displayDomaineCreate = false
+        elementsActifs.displayCompetenceCreate = false
+        elementsActifs.displayCompetenceSpeCreate = false
 
     }
 
@@ -149,6 +189,32 @@
     function ajouterChamp() {
         console.log("ajouterChamp")
         showChampCreate()
+    }
+
+    function ajouterCompetence() {
+        console.log("ajouterCompetence")
+        elementsActifs.displayDomaineDetail = false
+        elementsActifs.displayChampDetail = false
+        elementsActifs.displayCompetenceDetail = false
+        elementsActifs.displayCompetenceSpeDetail = false
+        elementsActifs.displayChampCreate = false
+        elementsActifs.displayDomaineCreate = false
+        elementsActifs.displayCompetenceCreate = true
+        elementsActifs.displayCompetenceSpeCreate = false
+
+    }
+
+    function ajouterCompetenceSpe() {
+        console.log("ajouterCompetenceSpe")
+        elementsActifs.displayDomaineDetail = false
+        elementsActifs.displayChampDetail = false
+        elementsActifs.displayCompetenceDetail = false
+        elementsActifs.displayCompetenceSpeDetail = false
+        elementsActifs.displayChampCreate = false
+        elementsActifs.displayDomaineCreate = false
+        elementsActifs.displayCompetenceCreate = false
+        elementsActifs.displayCompetenceSpeCreate = true
+
     }
 
     // reception d'un evenement indiquant qu'un champ a été créé
@@ -161,6 +227,41 @@
         showChampDetail(newChamp.id)
 
     }
+
+    // reception d'un evenement indiquant qu'un domaine a été créé
+    function newDomaineCreated(newDomaine) {
+        console.log("creation d'un domaine:" + elementsActifs.domaineId + " : " + newDomaine);
+
+        // on rafraichi le menu
+        getCompetences()
+        // on affiche le nouveau champ
+        showDomainDetail(newDomaine.id)
+
+    }
+
+    // reception d'un evenement indiquant qu'un domaine a été créé
+    function newCompetenceCreated(newCompetence) {
+        console.log("creation d'une nouvelle competence:" + elementsActifs.domaineId + " : " + newCompetence);
+
+        // on rafraichi le menu
+        getCompetences()
+        // on affiche le nouveau champ
+        showCompetenceDetail(newCompetence.id)
+
+    }
+
+    // reception d'un evenement indiquant qu'un domaine a été créé
+    function newCompetenceSpeCreated(newCompetenceSpe) {
+        console.log("creation d'une nouvelle competence specifique:" + elementsActifs.domaineId + " : " + newCompetenceSpe);
+
+        // on rafraichi le menu
+        getCompetences()
+        // on affiche le nouveau champ
+        showCompetenceSpeDetail(newCompetenceSpe.id)
+
+    }
+
+    
 
 
     onMounted(() => initialisation(), getCompetences())
@@ -238,44 +339,48 @@
 
       <div class="col detailRight">
           <DomaineDetail :class="[elementsActifs.displayDomaineDetail == true ? 'd-block' : 'd-none']" :id="`${elementsActifs.domaineId}`" @ajouter-champ="ajouterChamp" />
-          <ChampDetail :class="[elementsActifs.displayChampDetail == true ? 'd-block' : 'd-none']" :id="`${elementsActifs.champId}`" />
-          <CompetenceDetail :class="[elementsActifs.displayCompetenceDetail == true ? 'd-block' : 'd-none']" :id="`${elementsActifs.comptetenceId}`" />
+          <ChampDetail :class="[elementsActifs.displayChampDetail == true ? 'd-block' : 'd-none']" :id="`${elementsActifs.champId}`" @ajouter-competence="ajouterCompetence" />
+          <CompetenceDetail :class="[elementsActifs.displayCompetenceDetail == true ? 'd-block' : 'd-none']" :id="`${elementsActifs.comptetenceId}`" @ajouter-competence-spe="ajouterCompetenceSpe"/>
           <CompetenceSpeDetail :class="[elementsActifs.displayCompetenceSpeDetail == true ? 'd-block' : 'd-none']" :id="`${elementsActifs.competenceSpeId}`" />
-          <ChampCreate :class="[elementsActifs.displayChampCreate == true ? 'd-block' : 'd-none']" @new-champ="newChampCreated" :id="`${elementsActifs.domaineId}`"/>
 
+          <ChampCreate :class="[elementsActifs.displayChampCreate == true ? 'd-block' : 'd-none']" @new-champ="newChampCreated" :id="`${elementsActifs.domaineId}`" />
+          <DomaineCreate :class="[elementsActifs.displayDomaineCreate == true ? 'd-block' : 'd-none']" @new-domaine="newDomaineCreated" />
+          <CompetenceCreate :class="[elementsActifs.displayCompetenceCreate == true ? 'd-block' : 'd-none']" @new-competence="newCompetenceCreated" />
+          <CompetenceSpeCreate :class="[elementsActifs.displayCompetenceSpeCreate == true ? 'd-block' : 'd-none']" @new-competenceSpe="newCompetenceSpeCreated" />
 
       </div>
     </div>
   </div>
-  <!-- Modal d'ajout d'un eleve -->
-  <div class="modal fade" id="newDomaineModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <!-- Modal d'ajout d'un nouveau domaine -->
+  <!--div class="modal fade" id="newDomaineModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Créer une nouvelle compétence</h1>
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Créer un nouveau domaine</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <div class="mb-3 row">
             <label for="staticEmail" class="col-sm-2 col-form-label">nom</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="prenom" v-model="newDomaine.nom">
+              <input type="text" class="form-control" id="nom" v-model="newDomaine.nom">
             </div>
           </div>
           <div class="mb-3 row">
             <label for="inputPassword" class="col-sm-2 col-form-label">Description</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="nom" v-model="newDomaine.description">
+              <input type="text" class="form-control" id="description" v-model="newDomaine.description">
             </div>
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-          <button type="button" class="btn btn-primary">Créer</button>
+            <button type="button" class="btn btn-primary">Créer</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+
         </div>
       </div>
     </div>
-  </div>
+  </div-->
 </template>
 <style scoped>
     .list-group {

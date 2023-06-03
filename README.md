@@ -1,3 +1,13 @@
+
+# Todo 
+  - Version 0.1
+    - [ ] EPIC : Gestion des competences
+      - [x] - Affichage 
+      - [ ] - CRUD domaine
+      - [ ] - CRUD champ
+      - [ ] - CRUD competence
+      - [ ] - CRUD comptence_spe
+  
 # evaluations
 
 This template should help get you started developing with Vue 3 in Vite.
